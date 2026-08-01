@@ -2,18 +2,70 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Snowveil Daydream</title>
-    <!-- Kết nối với file style.css -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Flutter</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font chữ mộng mơ từ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="intro">
-        <h1>🌙 Snowveil Daydream</h1>
-        <p>Những giấc mộng vùi mình trong gió tuyết...</p>
-        <button id="btn-enter">TIẾN VÀO GIẤC MỘNG</button>
-    </div>
 
-    <!-- Kết nối với file script.js -->
+    <!-- Nhạc nền ẩn (Sẽ phát khi bấm nút Đi chợ lựa chồng) -->
+    <audio id="bg-music" loop>
+        <source src="playlist.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Màn hình chào mừng (Intro) -->
+    <section id="intro-screen">
+        <div class="stars"></div>
+        <div class="intro-content">
+            <div class="musical-icon">𑣲𝄞</div>
+            <h1 class="title">Azure Flutter</h1>
+            <p class="subtitle">Đôi cánh tàn trên con sóng chiều tà.</p>
+            <p class="welcome-text">Welcome to your boyfriend world.</p>
+            <button id="btn-enter">ĐI CHỢ LỰA CHỒNG</button>
+        </div>
+    </section>
+
+    <!-- Nội dung chính (Ẩn lúc đầu, hiện sau khi bấm nút) -->
+    <main id="main-content" class="hidden">
+        <header class="profile-header">
+            <div class="avatar-container">
+                <img src="avatar.jpg" alt="Avatar" class="avatar">
+            </div>
+            <h2>Céline Adeline Allen</h2>
+            <p class="bio">𝄞⨾nơi những nốt nhạc được ngân nga✮˚.⋆</p>
+        </header>
+
+        <!-- Gian hàng chồng yêu -->
+        <section class="gallery-container">
+            <h3>✦ GIAN HÀNG CHỒNG YÊU ✦</h3>
+            
+            <div class="cards-grid">
+                <!-- Thẻ nhân vật 1 -->
+                <div class="card">
+                    <img src="louis.jpg" alt="𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝" class="card-img">
+                    <div class="card-info">
+                        <h4>𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</h4>
+                        <p class="quote">"Em… dại… an… nối… tiếc… Việtt… nhéee?"</p>
+                        <div class="tags">
+                            <span>#HiệnĐại</span>
+                            <span>#Cún</span>
+                            <span>#BG</span>
+                            <span>#Ngọt</span>
+                            <span>#AgeGap</span>
+                            <span>#SizeGap</span>
+                            <span>#RacingBoy</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
