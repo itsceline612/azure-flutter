@@ -7,10 +7,11 @@
 }
 
 body {
-    /* Nền chuyển sắc mềm mại từ hồng phấn mộng mơ sang xanh biển nhạt dịu mát */
-    background: linear-gradient(135deg, #fbe4e8 0%, #e8f4f8 50%, #d4eaf7 100%);
-    color: #4a5568; /* Màu chữ xám xanh đậm giúp đọc rõ trên nền sáng */
+    /* Nền màu hồng nhạt mộng mơ chuyển sang xanh biển dịu */
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 35%, #e1f5fe 100%) !important;
+    color: #4a5568;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* --- MÀN HÌNH CHÀO MỪNG (INTRO) --- */
@@ -21,26 +22,27 @@ body {
     align-items: center;
     text-align: center;
     padding: 20px;
+    position: relative;
 }
 
 .musical-icon {
     font-size: 50px;
     margin-bottom: 10px;
-    color: #709fb0;
+    color: #ec407a;
     animation: float 3s ease-in-out infinite;
 }
 
 .title {
     font-size: 3rem;
-    color: #58709f;
+    color: #ad1457;
     letter-spacing: 3px;
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
 .subtitle, .welcome-text {
     font-size: 1.05rem;
-    color: #6c7a89;
+    color: #6a1b9a;
     max-width: 450px;
     margin: 0 auto 15px;
     line-height: 1.6;
@@ -49,24 +51,70 @@ body {
 
 #btn-enter {
     margin-top: 25px;
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid #d0e1fd;
-    color: #4a6fa5;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #f48fb1;
+    color: #c2185b;
     padding: 12px 35px;
     border-radius: 30px;
     font-size: 1rem;
+    font-weight: bold;
     letter-spacing: 2px;
     cursor: pointer;
     backdrop-filter: blur(5px);
-    box-shadow: 0 4px 15px rgba(240, 194, 206, 0.4);
+    box-shadow: 0 4px 15px rgba(244, 143, 177, 0.5);
     transition: all 0.3s ease;
 }
 
 #btn-enter:hover {
-    background: #ffffff;
-    color: #e57373; /* Rà chuột vào đổi sang tone hồng ấm */
-    box-shadow: 0 6px 20px rgba(112, 159, 176, 0.3);
-    transform: translateY(-2px);
+    background: #f8bbd0;
+    color: #880e4f;
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.4);
+    transform: translateY(-3px);
+}
+
+/* --- HIỆU ỨNG HẠT LẤP LÁNH HỒNG RƠI --- */
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.sparkles span {
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #f48fb1;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ec407a, 0 0 20px #f48fb1;
+    animation: fall 7s linear infinite;
+    opacity: 0.8;
+}
+
+.sparkles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.sparkles span:nth-child(2) { left: 20%; animation-delay: 2s; width: 12px; height: 12px; }
+.sparkles span:nth-child(3) { left: 35%; animation-delay: 4s; }
+.sparkles span:nth-child(4) { left: 50%; animation-delay: 1s; width: 10px; height: 10px; }
+.sparkles span:nth-child(5) { left: 65%; animation-delay: 3s; }
+.sparkles span:nth-child(6) { left: 75%; animation-delay: 5s; width: 12px; height: 12px; }
+.sparkles span:nth-child(7) { left: 85%; animation-delay: 2s; }
+.sparkles span:nth-child(8) { left: 90%; animation-delay: 4s; }
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        top: 110%;
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0.2;
+    }
 }
 
 /* --- NỘI DUNG CHÍNH (MAIN CONTENT) --- */
@@ -84,18 +132,18 @@ body {
     height: 110px;
     border-radius: 50%;
     border: 3px solid #ffffff;
-    box-shadow: 0 4px 15px rgba(230, 180, 195, 0.5);
+    box-shadow: 0 4px 15px rgba(244, 143, 177, 0.6);
     margin-bottom: 12px;
     object-fit: cover;
 }
 
 .profile-header h2 {
-    color: #4a6fa5;
+    color: #880e4f;
 }
 
 .bio {
     font-size: 1rem;
-    color: #788896;
+    color: #ad1457;
     margin-top: 5px;
 }
 
@@ -111,7 +159,7 @@ body {
     margin-bottom: 30px;
     letter-spacing: 2px;
     font-size: 1.4rem;
-    color: #58709f;
+    color: #880e4f;
 }
 
 .cards-grid {
@@ -121,18 +169,18 @@ body {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.75); /* Khung trắng trong suốt */
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(248, 187, 208, 0.8);
     border-radius: 20px;
     overflow: hidden;
     backdrop-filter: blur(8px);
-    box-shadow: 0 8px 20px rgba(180, 205, 225, 0.3);
+    box-shadow: 0 8px 20px rgba(244, 143, 177, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(230, 175, 190, 0.4);
+    box-shadow: 0 12px 25px rgba(236, 64, 122, 0.4);
 }
 
 .card-img {
@@ -148,12 +196,12 @@ body {
 .card-info h4 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #3b5249; /* Tông xám xanh lá nhẹ tạo cảm giác tươi mát */
+    color: #880e4f;
 }
 
 .quote {
     font-size: 0.95rem;
-    color: #5c6b73;
+    color: #4a5568;
     font-style: italic;
     margin-bottom: 15px;
     line-height: 1.5;
@@ -161,17 +209,16 @@ body {
 
 .tags span {
     display: inline-block;
-    background: #fde2e4; /* Thẻ tag màu hồng phấn nhẹ */
+    background: #f8bbd0;
     font-size: 0.8rem;
     padding: 5px 12px;
     border-radius: 15px;
     margin-right: 6px;
     margin-bottom: 6px;
-    color: #5e72e4; /* Chữ tag xanh nhẹ */
+    color: #880e4f;
     font-weight: 600;
 }
 
-/* HIỆU ỨNG NỔI NỐT NHẠC */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
