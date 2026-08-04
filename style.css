@@ -1,21 +1,178 @@
+/* --- CẤU HÌNH CHUNG --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libertinus Serif', serif;
+}
+
 body {
-    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); /* Màu nền chuyển sắc đêm */
-    color: white;
-    font-family: Arial, sans-serif;
+    /* Nền chuyển sắc mềm mại từ hồng phấn mộng mơ sang xanh biển nhạt dịu mát */
+    background: linear-gradient(135deg, #fbe4e8 0%, #e8f4f8 50%, #d4eaf7 100%);
+    color: #4a5568; /* Màu chữ xám xanh đậm giúp đọc rõ trên nền sáng */
+    min-height: 100vh;
+}
+
+/* --- MÀN HÌNH CHÀO MỪNG (INTRO) --- */
+#intro-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding-top: 100px;
+    padding: 20px;
 }
 
-button {
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 25px;
+.musical-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #709fb0;
+    animation: float 3s ease-in-out infinite;
+}
+
+.title {
+    font-size: 3rem;
+    color: #58709f;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.subtitle, .welcome-text {
+    font-size: 1.05rem;
+    color: #6c7a89;
+    max-width: 450px;
+    margin: 0 auto 15px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+#btn-enter {
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #d0e1fd;
+    color: #4a6fa5;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-size: 1rem;
+    letter-spacing: 2px;
     cursor: pointer;
-    font-size: 16px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(240, 194, 206, 0.4);
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Rà chuột vào nút sẽ sáng lên */
+#btn-enter:hover {
+    background: #ffffff;
+    color: #e57373; /* Rà chuột vào đổi sang tone hồng ấm */
+    box-shadow: 0 6px 20px rgba(112, 159, 176, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- NỘI DUNG CHÍNH (MAIN CONTENT) --- */
+.hidden {
+    display: none;
+}
+
+.profile-header {
+    text-align: center;
+    padding: 50px 20px 20px;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(230, 180, 195, 0.5);
+    margin-bottom: 12px;
+    object-fit: cover;
+}
+
+.profile-header h2 {
+    color: #4a6fa5;
+}
+
+.bio {
+    font-size: 1rem;
+    color: #788896;
+    margin-top: 5px;
+}
+
+/* --- GIAN HÀNG CHỒNG YÊU (CARDS GRID) --- */
+.gallery-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.gallery-container h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+    color: #58709f;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.75); /* Khung trắng trong suốt */
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(180, 205, 225, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(230, 175, 190, 0.4);
+}
+
+.card-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 18px;
+}
+
+.card-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #3b5249; /* Tông xám xanh lá nhẹ tạo cảm giác tươi mát */
+}
+
+.quote {
+    font-size: 0.95rem;
+    color: #5c6b73;
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.tags span {
+    display: inline-block;
+    background: #fde2e4; /* Thẻ tag màu hồng phấn nhẹ */
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    border-radius: 15px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    color: #5e72e4; /* Chữ tag xanh nhẹ */
+    font-weight: 600;
+}
+
+/* HIỆU ỨNG NỔI NỐT NHẠC */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
