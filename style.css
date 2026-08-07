@@ -303,3 +303,44 @@ body.open-door .door-right {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
+/* --- THANH MENU TAB ĐIỀU HƯỚNG --- */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px auto 30px;
+    border-bottom: 2px solid rgba(248, 187, 208, 0.5);
+    max-width: 400px;
+    padding-bottom: 8px;
+}
+
+.tab-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #788896;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Tab đang chọn (Gian hàng chồng yêu) có gạch chân đậm */
+.tab-item.active {
+    color: #880e4f;
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #880e4f;
+    border-radius: 2px;
+}
+
+/* Tab Tác giả khi di chuột vào */
+a.tab-item:hover {
+    color: #ec407a;
+}
