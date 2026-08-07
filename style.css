@@ -7,7 +7,6 @@
 }
 
 body {
-    /* Nền màu hồng nhạt mộng mơ chuyển sang xanh biển dịu */
     background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 35%, #e1f5fe 100%) !important;
     color: #4a5568;
     min-height: 100vh;
@@ -25,11 +24,25 @@ body {
     position: relative;
 }
 
+/* --- ĐỊNH NGHĨA HIỆU ỨNG HIỆN TỪ TỪ (FADE IN) --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Đẩy xuống một chút trước khi hiện */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Trở về vị trí chuẩn */
+    }
+}
+
+/* Cài đặt thời gian xuất hiện lần lượt */
 .musical-icon {
     font-size: 50px;
     margin-bottom: 10px;
     color: #ec407a;
-    animation: float 3s ease-in-out infinite;
+    animation: fadeInUp 1s ease forwards, float 3s ease-in-out infinite 1s;
+    opacity: 0; /* Ẩn lúc đầu */
 }
 
 .title {
@@ -38,17 +51,33 @@ body {
     letter-spacing: 3px;
     margin-bottom: 15px;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1.2s ease forwards 0.8s; /* Hiện sau 0.8s */
+    opacity: 0;
 }
 
-.subtitle, .welcome-text {
+.subtitle {
+    font-size: 1.05rem;
+    color: #6a1b9a;
+    max-width: 450px;
+    margin: 0 auto 10px;
+    line-height: 1.6;
+    font-style: italic;
+    animation: fadeInUp 1.2s ease forwards 1.6s; /* Hiện sau 1.6s */
+    opacity: 0;
+}
+
+.welcome-text {
     font-size: 1.05rem;
     color: #6a1b9a;
     max-width: 450px;
     margin: 0 auto 15px;
     line-height: 1.6;
     font-style: italic;
+    animation: fadeInUp 1.2s ease forwards 2.2s; /* Hiện sau 2.2s */
+    opacity: 0;
 }
 
+/* NÚT BẤM HIỆN CUỐI CÙNG */
 #btn-enter {
     margin-top: 25px;
     background: rgba(255, 255, 255, 0.8);
@@ -63,6 +92,8 @@ body {
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(244, 143, 177, 0.5);
     transition: all 0.3s ease;
+    animation: fadeInUp 1.2s ease forwards 3s; /* Hiện cuối cùng sau 3 giây */
+    opacity: 0;
 }
 
 #btn-enter:hover {
@@ -217,6 +248,18 @@ body {
     margin-bottom: 6px;
     color: #880e4f;
     font-weight: 600;
+}
+
+/* Trang trí đường link cho tên nhân vật */
+.char-link {
+    color: #880e4f;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.char-link:hover {
+    color: #ec407a;
+    text-shadow: 0 0 8px rgba(236, 64, 122, 0.4);
 }
 
 @keyframes float {
