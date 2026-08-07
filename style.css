@@ -13,6 +13,45 @@ body {
     overflow-x: hidden;
 }
 
+/* --- TẠO CÁNH CỬA MỞ (DOOR EFFECT) --- */
+#door-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    pointer-events: none; /* Không cản trở bấm nút */
+    display: flex;
+}
+
+.door {
+    width: 50vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8bbd0, #e1f5fe);
+    box-shadow: inset 0 0 50px rgba(236, 64, 122, 0.2);
+    transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.door-left {
+    border-right: 2px solid rgba(255, 255, 255, 0.8);
+    transform-origin: left;
+}
+
+.door-right {
+    border-left: 2px solid rgba(255, 255, 255, 0.8);
+    transform-origin: right;
+}
+
+/* Khi bấm nút, mở 2 cánh cửa ra 2 bên */
+body.open-door .door-left {
+    transform: translateX(-100%);
+}
+
+body.open-door .door-right {
+    transform: translateX(100%);
+}
+
 /* --- MÀN HÌNH CHÀO MỪNG (INTRO) --- */
 #intro-screen {
     height: 100vh;
@@ -22,27 +61,27 @@ body {
     text-align: center;
     padding: 20px;
     position: relative;
+    transition: opacity 1s ease;
 }
 
-/* --- ĐỊNH NGHĨA HIỆU ỨNG HIỆN TỪ TỪ (FADE IN) --- */
+/* --- HIỆU ỨNG FADE IN DÒNG CHỮ --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Đẩy xuống một chút trước khi hiện */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);    /* Trở về vị trí chuẩn */
+        transform: translateY(0);
     }
 }
 
-/* Cài đặt thời gian xuất hiện lần lượt */
 .musical-icon {
     font-size: 50px;
     margin-bottom: 10px;
     color: #ec407a;
     animation: fadeInUp 1s ease forwards, float 3s ease-in-out infinite 1s;
-    opacity: 0; /* Ẩn lúc đầu */
+    opacity: 0;
 }
 
 .title {
@@ -51,7 +90,7 @@ body {
     letter-spacing: 3px;
     margin-bottom: 15px;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
-    animation: fadeInUp 1.2s ease forwards 0.8s; /* Hiện sau 0.8s */
+    animation: fadeInUp 1.2s ease forwards 0.8s;
     opacity: 0;
 }
 
@@ -62,7 +101,7 @@ body {
     margin: 0 auto 10px;
     line-height: 1.6;
     font-style: italic;
-    animation: fadeInUp 1.2s ease forwards 1.6s; /* Hiện sau 1.6s */
+    animation: fadeInUp 1.2s ease forwards 1.6s;
     opacity: 0;
 }
 
@@ -73,11 +112,10 @@ body {
     margin: 0 auto 15px;
     line-height: 1.6;
     font-style: italic;
-    animation: fadeInUp 1.2s ease forwards 2.2s; /* Hiện sau 2.2s */
+    animation: fadeInUp 1.2s ease forwards 2.2s;
     opacity: 0;
 }
 
-/* NÚT BẤM HIỆN CUỐI CÙNG */
 #btn-enter {
     margin-top: 25px;
     background: rgba(255, 255, 255, 0.8);
@@ -92,7 +130,7 @@ body {
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(244, 143, 177, 0.5);
     transition: all 0.3s ease;
-    animation: fadeInUp 1.2s ease forwards 3s; /* Hiện cuối cùng sau 3 giây */
+    animation: fadeInUp 1.2s ease forwards 3s;
     opacity: 0;
 }
 
@@ -103,7 +141,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* --- HIỆU ỨNG HẠT LẤP LÁNH HỒNG RƠI --- */
+/* --- HIỆU ỨNG HẠT LẤP LÁNH --- */
 .sparkles {
     position: absolute;
     top: 0;
@@ -148,7 +186,7 @@ body {
     }
 }
 
-/* --- NỘI DUNG CHÍNH (MAIN CONTENT) --- */
+/* --- NỘI DUNG CHÍNH --- */
 .hidden {
     display: none;
 }
@@ -178,7 +216,7 @@ body {
     margin-top: 5px;
 }
 
-/* --- GIAN HÀNG CHỒNG YÊU (CARDS GRID) --- */
+/* --- GIAN HÀNG CHỒNG YÊU --- */
 .gallery-container {
     max-width: 850px;
     margin: 0 auto;
@@ -250,7 +288,6 @@ body {
     font-weight: 600;
 }
 
-/* Trang trí đường link cho tên nhân vật */
 .char-link {
     color: #880e4f;
     text-decoration: none;
