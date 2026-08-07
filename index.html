@@ -59,8 +59,30 @@
 
         <!-- Gian hàng chồng yêu -->
         <section class="gallery-container">   
-            <!-- Khung trống này để JS tự động đổ danh sách từ characters.json vào -->
-            <div class="cards-grid" id="character-list"></div>
+            <div class="cards-grid">
+                
+                <!-- THẺ NHÂN VẬT LOUIS (Đã điền trực tiếp) -->
+                <div class="card" onclick="openModal('louis-plot.txt', '𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝', 'https://aistudio.google.com/app/prompts/17XszDKBU2Ws6kojreIdoBRtv8WUZFasf')">
+                    <img src="louis.jpg" alt="𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝" class="card-img">
+
+                    <div class="card-info">
+                        <h4>
+                            <span class="char-link">𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</span>
+                        </h4>
+                        <p class="quote">"Em… dại… an… nối… tiếc… Việtt… nhéee?"</p>
+                        <div class="tags">
+                            <span>#HiệnĐại</span>
+                            <span>#Cún</span>
+                            <span>#BG</span>
+                            <span>#Ngọt</span>
+                            <span>#AgeGap</span>
+                            <span>#SizeGap</span>
+                            <span>#RacingBoy</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
     </main>
 
@@ -69,15 +91,14 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             
-            <h3 class="modal-title">Tên Nhân Vật</h3>
+            <h3 class="modal-title">𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</h3>
             
-            <!-- Ô hiển thị Plot tự động tải từ file .txt -->
             <div class="plot-container" id="plot-text">
                 <p>Đang tải nội dung câu chuyện...</p>
             </div>
 
             <div class="modal-footer">
-                <a href="#" target="_blank" class="btn-chat">
+                <a href="https://aistudio.google.com/app/prompts/17XszDKBU2Ws6kojreIdoBRtv8WUZFasf" target="_blank" class="btn-chat">
                     CHAT VỚI CHỒNG IU ➔
                 </a>
             </div>
