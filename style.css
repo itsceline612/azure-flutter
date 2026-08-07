@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1; /* Đã hạ z-index xuống để không che màn hình Intro */
+    z-index: 1; /* Hạ z-index để không che màn hình Intro */
     pointer-events: none;
     display: flex;
 }
@@ -51,46 +51,6 @@ body.open-door .door-right {
     transform: translateX(100%);
 }
 
-/* Đảm bảo Intro luôn nổi lên trên cùng khi mới tải trang */
-#intro-screen {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    z-index: 10; /* Đẩy Intro lên trên cùng */
-    transition: opacity 1s ease;
-}
-
-.door {
-    width: 50vw;
-    height: 100vh;
-    background: linear-gradient(135deg, #f8bbd0, #e1f5fe);
-    box-shadow: inset 0 0 50px rgba(236, 64, 122, 0.2);
-    transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.door-left {
-    border-right: 2px solid rgba(255, 255, 255, 0.8);
-    transform-origin: left;
-}
-
-.door-right {
-    border-left: 2px solid rgba(255, 255, 255, 0.8);
-    transform-origin: right;
-}
-
-/* Khi bấm nút, mở 2 cánh cửa ra 2 bên */
-body.open-door .door-left {
-    transform: translateX(-100%);
-}
-
-body.open-door .door-right {
-    transform: translateX(100%);
-}
-
 /* --- MÀN HÌNH CHÀO MỪNG (INTRO) --- */
 #intro-screen {
     height: 100vh;
@@ -100,6 +60,7 @@ body.open-door .door-right {
     text-align: center;
     padding: 20px;
     position: relative;
+    z-index: 10; /* Đẩy màn hình Intro lên nổi phía trên */
     transition: opacity 1s ease;
 }
 
@@ -284,6 +245,7 @@ body.open-door .door-right {
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 20px rgba(244, 143, 177, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -342,6 +304,7 @@ body.open-door .door-right {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
+
 /* --- THANH MENU TAB ĐIỀU HƯỚNG --- */
 .nav-tabs {
     display: flex;
@@ -363,7 +326,6 @@ body.open-door .door-right {
     transition: color 0.3s ease;
 }
 
-/* Tab đang chọn (Gian hàng chồng yêu) có gạch chân đậm */
 .tab-item.active {
     color: #880e4f;
 }
@@ -379,10 +341,10 @@ body.open-door .door-right {
     border-radius: 2px;
 }
 
-/* Tab Tác giả khi di chuột vào */
 a.tab-item:hover {
     color: #ec407a;
 }
+
 /* --- CỬA SỔ POP-UP (MODAL) --- */
 .modal-overlay {
     position: fixed;
@@ -411,7 +373,7 @@ a.tab-item:hover {
     border: 2px solid #f8bbd0;
     width: 90%;
     max-width: 550px;
-    max-height: 80vh; /* Giới hạn chiều cao ô Pop-up */
+    max-height: 80vh;
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(236, 64, 122, 0.3);
@@ -440,15 +402,14 @@ a.tab-item:hover {
     text-align: center;
 }
 
-/* KHU VỰC CHỨA PLOT DÀI (CÓ THANH CUỘN) */
 .plot-container {
-    overflow-y: auto; /* Tự tạo thanh cuộn dọc khi Plot dài hơn khung */
+    overflow-y: auto;
     padding-right: 10px;
     margin-bottom: 20px;
     font-size: 0.95rem;
     line-height: 1.7;
     color: #4a5568;
-    max-height: 50vh; /* Chiều cao tối đa của vùng đọc Plot */
+    max-height: 50vh;
 }
 
 .plot-container::-webkit-scrollbar {
