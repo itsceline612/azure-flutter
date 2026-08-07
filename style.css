@@ -344,3 +344,104 @@ body.open-door .door-right {
 a.tab-item:hover {
     color: #ec407a;
 }
+/* --- CỬA SỔ POP-UP (MODAL) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #ffffff;
+    border: 2px solid #f8bbd0;
+    width: 90%;
+    max-width: 550px;
+    max-height: 80vh; /* Giới hạn chiều cao ô Pop-up */
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(236, 64, 122, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #ad1457;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ec407a;
+}
+
+.modal-title {
+    color: #880e4f;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* KHU VỰC CHỨA PLOT DÀI (CÓ THANH CUỘN) */
+.plot-container {
+    overflow-y: auto; /* Tự tạo thanh cuộn dọc khi Plot dài hơn khung */
+    padding-right: 10px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4a5568;
+    max-height: 50vh; /* Chiều cao tối đa của vùng đọc Plot */
+}
+
+.plot-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.plot-container::-webkit-scrollbar-thumb {
+    background: #f8bbd0;
+    border-radius: 10px;
+}
+
+.modal-footer {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #fce4ec;
+}
+
+.btn-chat {
+    display: inline-block;
+    background: linear-gradient(135deg, #ec407a, #c2185b);
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-chat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(236, 64, 122, 0.6);
+}
