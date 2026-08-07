@@ -13,17 +13,19 @@
 </head>
 <body>
 
-    <!-- Nhạc nền ẩn (Sẽ phát khi bấm nút Đi chợ lựa chồng) -->
+    <!-- Nhạc nền ẩn -->
     <audio id="bg-music" loop>
         <source src="playlist.mp3" type="audio/mpeg">
     </audio>
-<div id="door-container">
+
+    <!-- Khung 2 cánh cửa mở ra -->
+    <div id="door-container">
         <div class="door door-left"></div>
         <div class="door door-right"></div>
     </div>
+
     <!-- Màn hình chào mừng (Intro) -->
     <section id="intro-screen">
-        <!-- Đã đóng thẻ sparkles cẩn thận -->
         <div class="sparkles">
             <span></span><span></span><span></span><span></span><span></span>
             <span></span><span></span><span></span><span></span><span></span>
@@ -39,7 +41,7 @@
         </div>
     </section>
 
-    <!-- Nội dung chính (Ẩn lúc đầu, hiện sau khi bấm nút) -->
+    <!-- Nội dung chính -->
     <main id="main-content" class="hidden">
         <header class="profile-header">
             <div class="avatar-container">
@@ -48,24 +50,23 @@
             <h2>Céline Adeline Allen</h2>
             <p class="bio">𝄞⨾nơi những nốt nhạc được ngân nga✮˚.⋆</p>
         </header>
-<nav class="nav-tabs">
-        <span class="tab-item active">✦ Gian hàng chồng yêu ✦</span>
-        <a href="https://www.facebook.com/itsceline6" target="_blank" class="tab-item">Tác giả ▾</a>
-    </nav>
+
+        <!-- Thanh Menu Tab -->
+        <nav class="nav-tabs">
+            <span class="tab-item active">✦ Gian hàng chồng yêu ✦</span>
+            <a href="https://www.facebook.com/itsceline6" target="_blank" class="tab-item">Tác giả ▾</a>
+        </nav>
+
         <!-- Gian hàng chồng yêu -->
         <section class="gallery-container">   
             <div class="cards-grid">
-                <!-- Thẻ nhân vật 1 -->
-                <div class="card">
-                    <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Faistudio.google.com%2Fapp%2Fprompts%3Fstate%3D%257B%2522ids%2522%253A[%252217XszDKBU2Ws6kojreIdoBRtv8WUZFasf%2522]%252C%2522action%2522%253A%2522open%2522%252C%2522userId%2522%253A%2522108867405325231494515%2522%252C%2522resourceKeys%2522%253A%257B%257D%257D%26usp%3Dsharing%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExM1E2aWR4NnNjZm1SRkRkeXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR6A4ONSWrTglDDH4nL0n4vJXDn4LY9Ftji9zdaHzitgNICwSwXY_4RvQtwoqw_aem_AspNRJgYwf7FJ2T24QBMCQ&h=AUBOtuIHEoNYCnzVsjqpkG7ptltFIRaZXbpFjbCfFvmWvVtzeyXxCvGb3DzTadH4iv8elkTJswZmbrLbr0G6v9W7ZcaG9IRurDy2poA5nhJhJ_hujk2k3kQkEQxx3h0Mt9ggabpuRlOpbVDR&__tn__=-UK-R&c[0]=AUBrKpmldol8tn-QE45X1WPCPsuYoUGzL2zreanVmCFE06dJCrvFiW3axMKMTGoQTu1ha-W_BJ66zVrAYqMunsjXfFyv8JqJ8w1LeLy7UZw_HFQ3zYx-FwizzUYqw5Q-_Q4tjiHKMIsdEPL43fnHpPQCceqUdW01hyCM86MpQr316Cb_-_9U-sdzc4ea9o0FWz-yqIOSHwHlVCuDikrBh9CYwQ" target="_blank">
-                        <img src="louis.jpg" alt="𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝" class="card-img">
-                    </a>
+                <!-- Thẻ nhân vật 1 (Đã thêm lệnh mở Pop-up) -->
+                <div class="card" onclick="openModal()">
+                    <img src="louis.jpg" alt="𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝" class="card-img">
 
                     <div class="card-info">
                         <h4>
-                            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Faistudio.google.com%2Fapp%2Fprompts%3Fstate%3D%257B%2522ids%2522%253A[%252217XszDKBU2Ws6kojreIdoBRtv8WUZFasf%2522]%252C%2522action%2522%253A%2522open%2522%252C%2522userId%2522%253A%2522108867405325231494515%2522%252C%2522resourceKeys%2522%253A%257B%257D%257D%26usp%3Dsharing%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExM1E2aWR4NnNjZm1SRkRkeXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR6A4ONSWrTglDDH4nL0n4vJXDn4LY9Ftji9zdaHzitgNICwSwXY_4RvQtwoqw_aem_AspNRJgYwf7FJ2T24QBMCQ&h=AUBOtuIHEoNYCnzVsjqpkG7ptltFIRaZXbpFjbCfFvmWvVtzeyXxCvGb3DzTadH4iv8elkTJswZmbrLbr0G6v9W7ZcaG9IRurDy2poA5nhJhJ_hujk2k3kQkEQxx3h0Mt9ggabpuRlOpbVDR&__tn__=-UK-R&c[0]=AUBrKpmldol8tn-QE45X1WPCPsuYoUGzL2zreanVmCFE06dJCrvFiW3axMKMTGoQTu1ha-W_BJ66zVrAYqMunsjXfFyv8JqJ8w1LeLy7UZw_HFQ3zYx-FwizzUYqw5Q-_Q4tjiHKMIsdEPL43fnHpPQCceqUdW01hyCM86MpQr316Cb_-_9U-sdzc4ea9o0FWz-yqIOSHwHlVCuDikrBh9CYwQ" target="_blank" class="char-link">
-                                𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝
-                            </a>
+                            <span class="char-link">𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</span>
                         </h4>
                         <p class="quote">"Em… dại… an… nối… tiếc… Việtt… nhéee?"</p>
                         <div class="tags">
@@ -82,6 +83,26 @@
             </div>
         </section>
     </main>
+
+    <!-- CỬA SỔ POP-UP (MODAL) -->
+    <div id="plot-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <h3 class="modal-title">𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</h3>
+            
+            <!-- Ô hiển thị Plot đọc từ file louis-plot.txt -->
+            <div class="plot-container" id="plot-text">
+                <p>Đang tải nội dung câu chuyện...</p>
+            </div>
+
+            <div class="modal-footer">
+                <a href="https://aistudio.google.com/app/prompts/17XszDKBU2Ws6kojreIdoBRtv8WUZFasf" target="_blank" class="btn-chat">
+                    CHAT VỚI NHÂN VẬT ➔
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
