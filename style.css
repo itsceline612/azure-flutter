@@ -445,3 +445,28 @@ a.tab-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(236, 64, 122, 0.6);
 }
+/* --- NHÃN UPCOMING TRÊN THẺ NHÂN VẬT --- */
+.card.upcoming {
+    position: relative;
+}
+
+.badge-upcoming {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ad1457, #ec407a);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(173, 20, 87, 0.4);
+    z-index: 5;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.85; }
+}
