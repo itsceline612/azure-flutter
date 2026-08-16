@@ -1,6 +1,8 @@
-// 1. Phát nhạc nền & mở cửa khi bấm nút
+// 1. Phát nhạc & kích hoạt cánh cửa cổ điển mở ra
 document.getElementById('btn-enter').addEventListener('click', function() {
     const music = document.getElementById('bg-music');
+    const doorContainer = document.getElementById('door-container');
+
     if (music) {
         music.volume = 0.5;
         music.play().catch(function(error) {
@@ -8,14 +10,24 @@ document.getElementById('btn-enter').addEventListener('click', function() {
         });
     }
 
-    document.body.classList.add('open-door');
+    // Hiện cánh cửa lên màn hình
+    if (doorContainer) {
+        doorContainer.classList.add('active');
+    }
+
+    // Tạo độ trễ nhẹ rồi mở bung cửa ra
+    setTimeout(function() {
+        document.body.classList.add('open-door');
+    }, 150);
 
     setTimeout(function() {
         document.getElementById('intro-screen').style.display = 'none';
         document.getElementById('main-content').classList.remove('hidden');
-    }, 600);
+        if (doorContainer) {
+            doorContainer.style.display = 'none';
+        }
+    }, 1500);
 });
-
 // 2. Mở Pop-up & tự đổi tên nút bấm tùy thuộc vào nhân vật UPCOMING hay thường
 function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
     const modal = document.getElementById('plot-modal');
