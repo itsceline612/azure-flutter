@@ -1,7 +1,9 @@
-// 1. Phát nhạc & kích hoạt cánh cửa cổ điển mở ra
+// 1. Mở cánh cửa Châu Âu & chuyển mượt mà không chớp màn hình
 document.getElementById('btn-enter').addEventListener('click', function() {
     const music = document.getElementById('bg-music');
     const doorContainer = document.getElementById('door-container');
+    const introScreen = document.getElementById('intro-screen');
+    const mainContent = document.getElementById('main-content');
 
     if (music) {
         music.volume = 0.5;
@@ -10,23 +12,28 @@ document.getElementById('btn-enter').addEventListener('click', function() {
         });
     }
 
-    // Hiện cánh cửa lên màn hình
+    // Bước A: Hiện cánh cửa cung điện che kín màn hình
     if (doorContainer) {
         doorContainer.classList.add('active');
     }
 
-    // Tạo độ trễ nhẹ rồi mở bung cửa ra
+    // Bước B: Ngay khi cửa đã phủ kín, ẩn ngay Intro và hiện Main Content ở sau lưng cửa
+    setTimeout(function() {
+        if (introScreen) introScreen.style.display = 'none';
+        if (mainContent) mainContent.classList.remove('hidden');
+    }, 100);
+
+    // Bước C: Mở toang 2 cánh cửa ra (lộ trực tiếp gian hàng nhân vật)
     setTimeout(function() {
         document.body.classList.add('open-door');
-    }, 150);
+    }, 250);
 
+    // Bước D: Xóa hẳn khung cửa sau khi mở xong để người dùng tương tác thoải mái
     setTimeout(function() {
-        document.getElementById('intro-screen').style.display = 'none';
-        document.getElementById('main-content').classList.remove('hidden');
         if (doorContainer) {
             doorContainer.style.display = 'none';
         }
-    }, 1500);
+    }, 2100);
 });
 // 2. Mở Pop-up & tự đổi tên nút bấm tùy thuộc vào nhân vật UPCOMING hay thường
 function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
