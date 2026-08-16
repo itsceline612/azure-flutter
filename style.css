@@ -13,18 +13,19 @@ body {
     overflow-x: hidden;
 }
 
-/* --- CÁNH CỬA CHÂU ÂU CỔ ĐIỂN (VINTAGE ROYAL DOOR) --- */
+/* --- CỔNG CUNG ĐIỆN CHÂU ÂU CỔ ĐIỂN SIÊU CẦU KỲ --- */
 #door-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 999;
-    pointer-events: none;
+    z-index: 9999;
     display: flex;
-    opacity: 0; /* Mặc định ẩn hoàn toàn để không lộ đường rãnh ở màn hình Intro */
-    transition: opacity 0.2s ease;
+    perspective: 1200px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease-in;
 }
 
 #door-container.active {
@@ -35,81 +36,157 @@ body {
 .door {
     width: 50vw;
     height: 100vh;
-    background: linear-gradient(145deg, #f7d6e0 0%, #f2b5d4 50%, #e2b4bd 100%);
-    box-shadow: inset 0 0 80px rgba(173, 20, 87, 0.25);
-    transition: transform 1.6s cubic-bezier(0.7, 0, 0.2, 1);
+    background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 45%, #e0a3be 80%, #ce93d8 100%);
+    box-shadow: inset 0 0 100px rgba(136, 14, 79, 0.4), 0 0 50px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     box-sizing: border-box;
+    transition: transform 1.8s cubic-bezier(0.65, 0, 0.15, 1);
+    transform-style: preserve-3d;
 }
 
-/* Khung viền phào chỉ Châu Âu cổ điển */
-.door-panel-outer {
-    width: 75%;
-    height: 80%;
-    border: 3px solid #f8bbd0;
-    outline: 2px solid rgba(216, 27, 96, 0.3);
-    outline-offset: 6px;
-    border-radius: 12px;
-    box-shadow: inset 0 0 25px rgba(173, 20, 87, 0.15), 0 8px 25px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.door-panel-inner {
-    width: 75%;
-    height: 75%;
-    border: 1.5px dashed rgba(173, 20, 87, 0.4);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.door-ornament {
-    font-size: 2.2rem;
-    color: rgba(173, 20, 87, 0.6);
-    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
-}
-
-/* Cánh cửa bên trái */
 .door-left {
-    border-right: 3px solid #d81b60;
-    transform-origin: left;
+    border-right: 4px solid #b76e79;
+    transform-origin: left center;
 }
 
-/* Cánh cửa bên phải */
 .door-right {
-    border-left: 3px solid #d81b60;
-    transform-origin: right;
+    border-left: 4px solid #b76e79;
+    transform-origin: right center;
 }
 
-/* Tay nắm cửa mạ vàng cổ điển */
-.door-knob {
+/* Khung vòm cung điện Baroque */
+.gate-arch-frame {
+    width: 82%;
+    height: 88%;
+    border: 3px double #d4af37;
+    outline: 5px solid rgba(255, 255, 255, 0.6);
+    outline-offset: -12px;
+    border-radius: 120px 120px 15px 15px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 0 40px rgba(173, 20, 87, 0.25), 0 10px 30px rgba(136, 14, 79, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Biểu tượng vương miện / huy hiệu đỉnh vòm */
+.royal-crest {
+    font-size: 1.4rem;
+    color: #d4af37;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8), 0 2px 4px rgba(136, 14, 79, 0.4);
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+/* Bảng hoa văn sắt rèn phía trên */
+.filigree-panel {
+    width: 90%;
+    border-radius: 12px;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(255, 240, 245, 0.35);
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.upper-panel {
+    height: 40%;
+    border-radius: 90px 90px 10px 10px;
+}
+
+.filigree-center-icon {
+    font-size: 2rem;
+    color: #ad1457;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+/* Thanh phân cách mạ vàng chạm hoa huệ */
+.filigree-divider {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    position: relative;
+}
+
+.filigree-divider::before,
+.filigree-divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, #b76e79, transparent);
+}
+
+.filigree-divider span {
+    color: #d4af37;
+    font-size: 1.5rem;
+    padding: 0 10px;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+/* Bảng thanh song cung đình phía dưới */
+.lower-panel {
+    height: 42%;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(212, 175, 55, 0.15),
+        rgba(212, 175, 55, 0.15) 8px,
+        rgba(173, 20, 87, 0.1) 8px,
+        rgba(173, 20, 87, 0.1) 20px
+    );
+    border: 2px solid rgba(212, 175, 55, 0.5);
+}
+
+/* Tay nắm cửa vòng khuyên hoàng gia mạ vàng */
+.ornate-handle {
     position: absolute;
-    top: 50%;
+    top: 52%;
     transform: translateY(-50%);
-    width: 16px;
-    height: 48px;
-    background: linear-gradient(180deg, #ffe082, #ffb300, #b58105);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 1px 2px #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
 }
 
-.left-knob { right: 18px; }
-.right-knob { left: 18px; }
+.left-handle { right: 20px; }
+.right-handle { left: 20px; }
 
-/* Hiệu ứng khi mở toang cửa */
+.handle-plate {
+    width: 22px;
+    height: 75px;
+    background: linear-gradient(180deg, #fff3b0, #d4af37, #996515, #d4af37);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), inset 0 0 4px #fff;
+    border: 1px solid #7c4700;
+}
+
+.handle-ring {
+    width: 32px;
+    height: 32px;
+    border: 4px solid #d4af37;
+    border-radius: 50%;
+    margin-top: -35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 0 4px rgba(255, 255, 255, 0.6);
+    background: radial-gradient(circle, transparent 40%, rgba(212, 175, 55, 0.3) 100%);
+}
+
+/* Hiệu ứng xoay mở góc 3D bung ra 2 bên */
 body.open-door .door-left {
-    transform: translateX(-100%) rotateY(25deg);
+    transform: rotateY(-95deg);
 }
 
 body.open-door .door-right {
-    transform: translateX(100%) rotateY(-25deg);
+    transform: rotateY(95deg);
 }
 
 /* --- MÀN HÌNH CHÀO MỪNG (INTRO) --- */
@@ -121,7 +198,7 @@ body.open-door .door-right {
     text-align: center;
     padding: 20px;
     position: relative;
-    z-index: 10; /* Đẩy màn hình Intro lên nổi phía trên */
+    z-index: 10;
     transition: opacity 1s ease;
 }
 
@@ -506,6 +583,7 @@ a.tab-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(236, 64, 122, 0.6);
 }
+
 /* --- NHÃN UPCOMING TRÊN THẺ NHÂN VẬT --- */
 .card.upcoming {
     position: relative;
