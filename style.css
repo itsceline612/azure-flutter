@@ -1,4 +1,4 @@
-/* --- CẤU HÌNH CHUNG & FONT --- */
+/* --- CẤU HÌNH CHUNG & TYPOGRAPHY --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,22 @@
 }
 
 body {
-    background: radial-gradient(circle at center, #2d050e 0%, #150206 60%, #080002 100%) !important;
+    background: radial-gradient(circle at center, #2e050e 0%, #150206 65%, #080002 100%) !important;
     color: #e6d5c3;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* --- CỔNG CUNG ĐIỆN DARK RED & MẠ VÀNG --- */
+/* Hiệu ứng chữ mạ vàng ánh kim cổ điển (Gold Foil Text) */
+.gold-foil {
+    font-family: 'Cinzel Decorative', 'Libertinus Serif', serif;
+    background: linear-gradient(135deg, #fff3b0 0%, #d4af37 40%, #aa7c11 70%, #ffd966 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9));
+}
+
+/* --- CỔNG CUNG ĐIỆN BAROQUE DARK RED --- */
 #door-container {
     position: fixed;
     top: 0;
@@ -37,7 +46,7 @@ body {
     width: 50vw;
     height: 100vh;
     background: linear-gradient(145deg, #38040e 0%, #200207 60%, #0d0103 100%);
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9), 0 0 50px rgba(212, 175, 55, 0.2);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +66,6 @@ body {
     transform-origin: right center;
 }
 
-/* Khung vòm cửa Baroque */
 .gate-arch-frame {
     width: 82%;
     height: 88%;
@@ -67,7 +75,7 @@ body {
     border-radius: 140px 140px 15px 15px;
     background: rgba(15, 1, 4, 0.65);
     backdrop-filter: blur(10px);
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8), 0 10px 30px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.85);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,14 +99,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     background: rgba(45, 5, 14, 0.4);
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
-.upper-panel {
-    height: 40%;
-    border-radius: 100px 100px 10px 10px;
+.upper-panel { height: 40%; border-radius: 100px 100px 10px 10px; }
+.lower-panel {
+    height: 42%;
+    background: repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.1) 6px, rgba(10, 1, 3, 0.6) 6px, rgba(10, 1, 3, 0.6) 20px);
 }
 
 .filigree-center-icon {
@@ -113,35 +120,17 @@ body {
     align-items: center;
     justify-content: center;
     margin: 15px 0;
-    position: relative;
 }
 
-.filigree-divider::before,
-.filigree-divider::after {
+.filigree-divider::before, .filigree-divider::after {
     content: '';
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, transparent, #d4af37, transparent);
 }
 
-.filigree-divider span {
-    color: #d4af37;
-    font-size: 1.4rem;
-    padding: 0 10px;
-}
+.filigree-divider span { color: #d4af37; font-size: 1.4rem; padding: 0 10px; }
 
-.lower-panel {
-    height: 42%;
-    background: repeating-linear-gradient(
-        90deg,
-        rgba(212, 175, 55, 0.1),
-        rgba(212, 175, 55, 0.1) 6px,
-        rgba(10, 1, 3, 0.6) 6px,
-        rgba(10, 1, 3, 0.6) 20px
-    );
-}
-
-/* Tay nắm mạ vàng cổ điển */
 .ornate-handle {
     position: absolute;
     top: 52%;
@@ -151,7 +140,6 @@ body {
     align-items: center;
     z-index: 10;
 }
-
 .left-handle { right: 20px; }
 .right-handle { left: 20px; }
 
@@ -160,8 +148,8 @@ body {
     height: 75px;
     background: linear-gradient(180deg, #f3e5ab, #d4af37, #8a6515, #d4af37);
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
     border: 1px solid #5a3d07;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
 .handle-ring {
@@ -171,7 +159,6 @@ body {
     border-radius: 50%;
     margin-top: -35px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-    background: radial-gradient(circle, transparent 40%, rgba(212, 175, 55, 0.2) 100%);
 }
 
 body.open-door .door-left { transform: rotateY(-95deg); }
@@ -204,10 +191,8 @@ body.open-door .door-right { transform: rotateY(95deg); }
 
 .title {
     font-size: 3.2rem;
-    color: #f5e6d3;
     letter-spacing: 4px;
     margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(184, 15, 43, 0.8), 0 0 10px rgba(212, 175, 55, 0.5);
     animation: fadeInUp 1.2s ease forwards 0.8s;
     opacity: 0;
 }
@@ -217,7 +202,6 @@ body.open-door .door-right { transform: rotateY(95deg); }
     color: #d4af37;
     max-width: 450px;
     margin: 0 auto 10px;
-    line-height: 1.6;
     font-style: italic;
     animation: fadeInUp 1.2s ease forwards 1.6s;
     opacity: 0;
@@ -228,13 +212,12 @@ body.open-door .door-right { transform: rotateY(95deg); }
     color: #bfa58d;
     max-width: 450px;
     margin: 0 auto 15px;
-    line-height: 1.6;
     letter-spacing: 1px;
     animation: fadeInUp 1.2s ease forwards 2.2s;
     opacity: 0;
 }
 
-#btn-enter {
+.royal-button, #btn-enter {
     margin-top: 25px;
     background: linear-gradient(135deg, rgba(88, 11, 25, 0.9), rgba(40, 4, 10, 0.9));
     border: 1.5px solid #d4af37;
@@ -252,14 +235,14 @@ body.open-door .door-right { transform: rotateY(95deg); }
     opacity: 0;
 }
 
-#btn-enter:hover {
+.royal-button:hover, #btn-enter:hover {
     background: linear-gradient(135deg, #7c0d23, #4a0613);
     color: #ffffff;
     box-shadow: 0 6px 25px rgba(184, 15, 43, 0.6), 0 0 20px rgba(212, 175, 55, 0.5);
     transform: translateY(-3px);
 }
 
-/* Hạt sáng vàng lấp lánh như bụi sao trong đêm */
+/* Hạt bụi sáng rơi nền */
 .sparkles {
     position: absolute;
     top: 0;
@@ -277,7 +260,7 @@ body.open-door .door-right { transform: rotateY(95deg); }
     height: 6px;
     background: #d4af37;
     border-radius: 50%;
-    box-shadow: 0 0 10px #d4af37, 0 0 20px #800020;
+    box-shadow: 0 0 10px #d4af37;
     animation: fall 8s linear infinite;
     opacity: 0.7;
 }
@@ -285,13 +268,32 @@ body.open-door .door-right { transform: rotateY(95deg); }
 .sparkles span:nth-child(1) { left: 10%; animation-delay: 0s; }
 .sparkles span:nth-child(2) { left: 25%; animation-delay: 2s; width: 8px; height: 8px; }
 .sparkles span:nth-child(3) { left: 45%; animation-delay: 4s; }
-.sparkles span:nth-child(4) { left: 60%; animation-delay: 1s; width: 7px; height: 7px; }
+.sparkles span:nth-child(4) { left: 60%; animation-delay: 1s; }
 .sparkles span:nth-child(5) { left: 75%; animation-delay: 3s; }
 .sparkles span:nth-child(6) { left: 90%; animation-delay: 5s; width: 8px; height: 8px; }
 
 @keyframes fall {
     0% { top: -10%; transform: translateX(0); opacity: 0.8; }
     100% { top: 110%; transform: translateX(80px); opacity: 0.1; }
+}
+
+/* --- DẢI BỤI VÀNG THEO CON TRỎ CHUỘT (CURSOR SPARKLE) --- */
+.cursor-particle {
+    position: fixed;
+    pointer-events: none;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #fff3b0 20%, #d4af37 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 8px #d4af37, 0 0 12px #b80f2b;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    animation: fadeParticle 0.9s ease-out forwards;
+}
+
+@keyframes fadeParticle {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) translateY(15px) scale(0.2); }
 }
 
 /* --- NỘI DUNG CHÍNH --- */
@@ -312,12 +314,6 @@ body.open-door .door-right { transform: rotateY(95deg); }
     object-fit: cover;
 }
 
-.profile-header h2 {
-    color: #f5e6d3;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
 .bio {
     font-size: 0.95rem;
     color: #d4af37;
@@ -325,7 +321,7 @@ body.open-door .door-right { transform: rotateY(95deg); }
     font-style: italic;
 }
 
-/* --- MENU TAB ĐIỀU HƯỚNG --- */
+/* --- MENU TAB --- */
 .nav-tabs {
     display: flex;
     justify-content: center;
@@ -362,9 +358,7 @@ body.open-door .door-right { transform: rotateY(95deg); }
     box-shadow: 0 0 8px #d4af37;
 }
 
-a.tab-item:hover { color: #f3e5ab; }
-
-/* --- GIAN HÀNG CHỒNG YÊU --- */
+/* --- THẺ NHÂN VẬT 3D VỚI 4 GÓC HOA VĂN BAROQUE --- */
 .gallery-container {
     max-width: 850px;
     margin: 0 auto;
@@ -375,24 +369,40 @@ a.tab-item:hover { color: #f3e5ab; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    perspective: 1000px;
 }
 
 .card {
-    background: linear-gradient(145deg, rgba(35, 4, 11, 0.85), rgba(18, 2, 5, 0.95));
+    position: relative;
+    background: linear-gradient(145deg, rgba(38, 4, 12, 0.9), rgba(18, 2, 5, 0.95));
     border: 1.5px solid rgba(212, 175, 55, 0.4);
     border-radius: 20px;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.3s ease;
     cursor: pointer;
+    transform-style: preserve-3d;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
     border-color: #d4af37;
-    box-shadow: 0 12px 35px rgba(184, 15, 43, 0.5), 0 0 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 16px 35px rgba(184, 15, 43, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
 }
+
+/* 4 góc hoa văn chạm mạ vàng */
+.corner-ornament {
+    position: absolute;
+    font-size: 1.1rem;
+    color: #d4af37;
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+    pointer-events: none;
+    z-index: 6;
+}
+.corner-ornament.top-left { top: 8px; left: 10px; }
+.corner-ornament.top-right { top: 8px; right: 10px; }
+.corner-ornament.bottom-left { bottom: 8px; left: 10px; }
+.corner-ornament.bottom-right { bottom: 8px; right: 10px; }
 
 .card-img {
     width: 100%;
@@ -401,12 +411,8 @@ a.tab-item:hover { color: #f3e5ab; }
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-.card-info { padding: 18px; }
-
-.card-info h4 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
+.card-info { padding: 18px; position: relative; z-index: 2; }
+.card-info h4 { font-size: 1.2rem; margin-bottom: 8px; }
 
 .char-link {
     color: #f3e5ab;
@@ -440,9 +446,7 @@ a.tab-item:hover { color: #f3e5ab; }
     font-weight: 600;
 }
 
-/* NHÃN UPCOMING VÀNG ÁNH KIM & ĐỎ RƯỢU */
-.card.upcoming { position: relative; }
-
+/* NHÃN UPCOMING */
 .badge-upcoming {
     position: absolute;
     top: 15px;
@@ -455,7 +459,7 @@ a.tab-item:hover { color: #f3e5ab; }
     padding: 5px 12px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-    z-index: 5;
+    z-index: 7;
     animation: pulse 2s infinite;
 }
 
@@ -464,14 +468,14 @@ a.tab-item:hover { color: #f3e5ab; }
     50% { transform: scale(1.05); opacity: 0.85; }
 }
 
-/* --- CỬA SỔ POP-UP (MODAL) --- */
+/* --- POP-UP PHONG THƯ DẤU SÁP ĐỎ NIÊM PHONG (WAX SEAL) --- */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
@@ -482,23 +486,39 @@ a.tab-item:hover { color: #f3e5ab; }
     transition: opacity 0.3s ease;
 }
 
-.modal-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
 
 .modal-content {
     background: linear-gradient(145deg, #220309, #110104);
-    border: 1.5px solid #d4af37;
+    border: 2px solid #d4af37;
     width: 90%;
     max-width: 550px;
     max-height: 80vh;
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px 25px 25px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(184, 15, 43, 0.4);
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+/* Con dấu sáp niêm phong góc thư */
+.wax-seal {
+    position: absolute;
+    top: -18px;
+    left: 25px;
+    width: 44px;
+    height: 44px;
+    background: radial-gradient(circle, #b80f2b 20%, #630514 80%);
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    color: #f3e5ab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 0 10px rgba(184, 15, 43, 0.6);
 }
 
 .close-btn {
@@ -510,10 +530,7 @@ a.tab-item:hover { color: #f3e5ab; }
     cursor: pointer;
 }
 
-.close-btn:hover { color: #ffffff; }
-
 .modal-title {
-    color: #f3e5ab;
     font-size: 1.4rem;
     margin-bottom: 15px;
     text-align: center;
@@ -545,14 +562,13 @@ a.tab-item:hover { color: #f3e5ab; }
 .btn-chat {
     display: inline-block;
     background: linear-gradient(135deg, #7c0d23, #3d0510);
-    border: 1px solid #d4af37;
+    border: 1.5px solid #d4af37;
     color: #f3e5ab;
     padding: 10px 28px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease;
 }
@@ -564,7 +580,7 @@ a.tab-item:hover { color: #f3e5ab; }
     box-shadow: 0 6px 20px rgba(184, 15, 43, 0.7);
 }
 
-/* --- TAB CỘNG ĐỒNG (BAN PHÁT CHỒNG & NÓI XẤU CHỒNG) --- */
+/* --- TAB CỘNG ĐỒNG --- */
 .tab-content { animation: fadeInTab 0.4s ease; }
 .hidden-tab { display: none !important; }
 .active-tab { display: block; }
@@ -581,19 +597,8 @@ a.tab-item:hover { color: #f3e5ab; }
     text-align: center;
 }
 
-.section-title {
-    color: #f3e5ab;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-}
-
-.section-desc {
-    color: #c9b09a;
-    font-style: italic;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
+.section-title { font-size: 1.5rem; margin-bottom: 5px; }
+.section-desc { color: #c9b09a; font-style: italic; font-size: 0.9rem; margin-bottom: 20px; }
 
 .post-box {
     background: linear-gradient(145deg, rgba(35, 4, 11, 0.9), rgba(18, 2, 5, 0.95));
@@ -606,13 +611,7 @@ a.tab-item:hover { color: #f3e5ab; }
     text-align: left;
 }
 
-.box-header {
-    color: #f3e5ab;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-}
+.box-header { color: #f3e5ab; font-weight: bold; font-size: 1rem; margin-bottom: 12px; }
 
 .input-field, .textarea-field {
     width: 100%;
@@ -632,10 +631,7 @@ a.tab-item:hover { color: #f3e5ab; }
     box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
 }
 
-.textarea-field {
-    min-height: 90px;
-    resize: vertical;
-}
+.textarea-field { min-height: 90px; resize: vertical; }
 
 .btn-submit {
     width: 100%;
@@ -648,7 +644,7 @@ a.tab-item:hover { color: #f3e5ab; }
     font-size: 0.95rem;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.2s;
 }
 
 .btn-submit:hover {
@@ -658,17 +654,8 @@ a.tab-item:hover { color: #f3e5ab; }
     box-shadow: 0 6px 20px rgba(184, 15, 43, 0.7);
 }
 
-.list-title {
-    color: #f3e5ab;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.cards-feed {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+.list-title { font-size: 1.2rem; margin-bottom: 15px; }
+.cards-feed { display: flex; flex-direction: column; gap: 15px; }
 
 .feed-item {
     background: linear-gradient(145deg, rgba(30, 3, 9, 0.85), rgba(15, 1, 4, 0.95));
@@ -680,24 +667,8 @@ a.tab-item:hover { color: #f3e5ab; }
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-.feed-content {
-    color: #e6d5c3;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 12px;
-    white-space: pre-wrap;
-}
-
-.feed-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    color: #c9b09a;
-    border-top: 1px dashed rgba(212, 175, 55, 0.2);
-    padding-top: 8px;
-}
-
+.feed-content { color: #e6d5c3; font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px; white-space: pre-wrap; }
+.feed-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #c9b09a; border-top: 1px dashed rgba(212, 175, 55, 0.2); padding-top: 8px; }
 .feed-author { font-weight: 600; color: #f3e5ab; }
 
 .btn-heart {
@@ -721,7 +692,4 @@ a.tab-item:hover { color: #f3e5ab; }
     transform: scale(1.05);
 }
 
-.loading-text {
-    color: #a89485;
-    font-style: italic;
-}
+.loading-text { color: #a89485; font-style: italic; }
