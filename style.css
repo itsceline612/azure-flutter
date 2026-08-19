@@ -1,4 +1,4 @@
-/* --- CẤU HÌNH CHUNG --- */
+/* --- CẤU HÌNH CHUNG & FONT --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,13 @@
 }
 
 body {
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 35%, #e1f5fe 100%) !important;
-    color: #4a5568;
+    background: radial-gradient(circle at center, #2d050e 0%, #150206 60%, #080002 100%) !important;
+    color: #e6d5c3;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* --- CỔNG CUNG ĐIỆN CHÂU ÂU CỔ ĐIỂN SIÊU CẦU KỲ --- */
+/* --- CỔNG CUNG ĐIỆN DARK RED & MẠ VÀNG --- */
 #door-container {
     position: fixed;
     top: 0;
@@ -36,8 +36,8 @@ body {
 .door {
     width: 50vw;
     height: 100vh;
-    background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 45%, #e0a3be 80%, #ce93d8 100%);
-    box-shadow: inset 0 0 100px rgba(136, 14, 79, 0.4), 0 0 50px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, #38040e 0%, #200207 60%, #0d0103 100%);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9), 0 0 50px rgba(212, 175, 55, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,26 +48,26 @@ body {
 }
 
 .door-left {
-    border-right: 4px solid #b76e79;
+    border-right: 3px solid #d4af37;
     transform-origin: left center;
 }
 
 .door-right {
-    border-left: 4px solid #b76e79;
+    border-left: 3px solid #d4af37;
     transform-origin: right center;
 }
 
-/* Khung vòm cung điện Baroque */
+/* Khung vòm cửa Baroque */
 .gate-arch-frame {
     width: 82%;
     height: 88%;
     border: 3px double #d4af37;
-    outline: 5px solid rgba(255, 255, 255, 0.6);
-    outline-offset: -12px;
-    border-radius: 120px 120px 15px 15px;
-    background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(8px);
-    box-shadow: inset 0 0 40px rgba(173, 20, 87, 0.25), 0 10px 30px rgba(136, 14, 79, 0.2);
+    outline: 2px solid rgba(212, 175, 55, 0.4);
+    outline-offset: -10px;
+    border-radius: 140px 140px 15px 15px;
+    background: rgba(15, 1, 4, 0.65);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8), 0 10px 30px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,40 +76,37 @@ body {
     position: relative;
 }
 
-/* Biểu tượng vương miện / huy hiệu đỉnh vòm */
 .royal-crest {
     font-size: 1.4rem;
     color: #d4af37;
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8), 0 2px 4px rgba(136, 14, 79, 0.4);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
 
-/* Bảng hoa văn sắt rèn phía trên */
 .filigree-panel {
     width: 90%;
     border-radius: 12px;
-    border: 2px solid rgba(212, 175, 55, 0.6);
+    border: 1.5px solid rgba(212, 175, 55, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: rgba(255, 240, 245, 0.35);
-    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2);
+    background: rgba(45, 5, 14, 0.4);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .upper-panel {
     height: 40%;
-    border-radius: 90px 90px 10px 10px;
+    border-radius: 100px 100px 10px 10px;
 }
 
 .filigree-center-icon {
     font-size: 2rem;
-    color: #ad1457;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+    color: #d4af37;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
 }
 
-/* Thanh phân cách mạ vàng chạm hoa huệ */
 .filigree-divider {
     width: 95%;
     display: flex;
@@ -123,31 +120,28 @@ body {
 .filigree-divider::after {
     content: '';
     flex: 1;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #d4af37, #b76e79, transparent);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
 }
 
 .filigree-divider span {
     color: #d4af37;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 0 10px;
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
 }
 
-/* Bảng thanh song cung đình phía dưới */
 .lower-panel {
     height: 42%;
     background: repeating-linear-gradient(
         90deg,
-        rgba(212, 175, 55, 0.15),
-        rgba(212, 175, 55, 0.15) 8px,
-        rgba(173, 20, 87, 0.1) 8px,
-        rgba(173, 20, 87, 0.1) 20px
+        rgba(212, 175, 55, 0.1),
+        rgba(212, 175, 55, 0.1) 6px,
+        rgba(10, 1, 3, 0.6) 6px,
+        rgba(10, 1, 3, 0.6) 20px
     );
-    border: 2px solid rgba(212, 175, 55, 0.5);
 }
 
-/* Tay nắm cửa vòng khuyên hoàng gia mạ vàng */
+/* Tay nắm mạ vàng cổ điển */
 .ornate-handle {
     position: absolute;
     top: 52%;
@@ -162,32 +156,26 @@ body {
 .right-handle { left: 20px; }
 
 .handle-plate {
-    width: 22px;
+    width: 20px;
     height: 75px;
-    background: linear-gradient(180deg, #fff3b0, #d4af37, #996515, #d4af37);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), inset 0 0 4px #fff;
-    border: 1px solid #7c4700;
+    background: linear-gradient(180deg, #f3e5ab, #d4af37, #8a6515, #d4af37);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    border: 1px solid #5a3d07;
 }
 
 .handle-ring {
     width: 32px;
     height: 32px;
-    border: 4px solid #d4af37;
+    border: 3.5px solid #d4af37;
     border-radius: 50%;
     margin-top: -35px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 0 4px rgba(255, 255, 255, 0.6);
-    background: radial-gradient(circle, transparent 40%, rgba(212, 175, 55, 0.3) 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    background: radial-gradient(circle, transparent 40%, rgba(212, 175, 55, 0.2) 100%);
 }
 
-/* Hiệu ứng xoay mở góc 3D bung ra 2 bên */
-body.open-door .door-left {
-    transform: rotateY(-95deg);
-}
-
-body.open-door .door-right {
-    transform: rotateY(95deg);
-}
+body.open-door .door-left { transform: rotateY(-95deg); }
+body.open-door .door-right { transform: rotateY(95deg); }
 
 /* --- MÀN HÌNH CHÀO MỪNG (INTRO) --- */
 #intro-screen {
@@ -199,42 +187,34 @@ body.open-door .door-right {
     padding: 20px;
     position: relative;
     z-index: 10;
-    transition: opacity 1s ease;
 }
 
-/* --- HIỆU ỨNG FADE IN DÒNG CHỮ --- */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .musical-icon {
-    font-size: 50px;
+    font-size: 45px;
     margin-bottom: 10px;
-    color: #ec407a;
+    color: #d4af37;
     animation: fadeInUp 1s ease forwards, float 3s ease-in-out infinite 1s;
     opacity: 0;
 }
 
 .title {
-    font-size: 3rem;
-    color: #ad1457;
-    letter-spacing: 3px;
+    font-size: 3.2rem;
+    color: #f5e6d3;
+    letter-spacing: 4px;
     margin-bottom: 15px;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 20px rgba(184, 15, 43, 0.8), 0 0 10px rgba(212, 175, 55, 0.5);
     animation: fadeInUp 1.2s ease forwards 0.8s;
     opacity: 0;
 }
 
 .subtitle {
     font-size: 1.05rem;
-    color: #6a1b9a;
+    color: #d4af37;
     max-width: 450px;
     margin: 0 auto 10px;
     line-height: 1.6;
@@ -244,42 +224,42 @@ body.open-door .door-right {
 }
 
 .welcome-text {
-    font-size: 1.05rem;
-    color: #6a1b9a;
+    font-size: 0.95rem;
+    color: #bfa58d;
     max-width: 450px;
     margin: 0 auto 15px;
     line-height: 1.6;
-    font-style: italic;
+    letter-spacing: 1px;
     animation: fadeInUp 1.2s ease forwards 2.2s;
     opacity: 0;
 }
 
 #btn-enter {
     margin-top: 25px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #f48fb1;
-    color: #c2185b;
-    padding: 12px 35px;
+    background: linear-gradient(135deg, rgba(88, 11, 25, 0.9), rgba(40, 4, 10, 0.9));
+    border: 1.5px solid #d4af37;
+    color: #f3e5ab;
+    padding: 12px 38px;
     border-radius: 30px;
     font-size: 1rem;
     font-weight: bold;
     letter-spacing: 2px;
     cursor: pointer;
     backdrop-filter: blur(5px);
-    box-shadow: 0 4px 15px rgba(244, 143, 177, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     animation: fadeInUp 1.2s ease forwards 3s;
     opacity: 0;
 }
 
 #btn-enter:hover {
-    background: #f8bbd0;
-    color: #880e4f;
-    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.4);
+    background: linear-gradient(135deg, #7c0d23, #4a0613);
+    color: #ffffff;
+    box-shadow: 0 6px 25px rgba(184, 15, 43, 0.6), 0 0 20px rgba(212, 175, 55, 0.5);
     transform: translateY(-3px);
 }
 
-/* --- HIỆU ỨNG HẠT LẤP LÁNH --- */
+/* Hạt sáng vàng lấp lánh như bụi sao trong đêm */
 .sparkles {
     position: absolute;
     top: 0;
@@ -293,41 +273,29 @@ body.open-door .door-right {
 .sparkles span {
     position: absolute;
     display: block;
-    width: 8px;
-    height: 8px;
-    background: #f48fb1;
+    width: 6px;
+    height: 6px;
+    background: #d4af37;
     border-radius: 50%;
-    box-shadow: 0 0 10px #ec407a, 0 0 20px #f48fb1;
-    animation: fall 7s linear infinite;
-    opacity: 0.8;
+    box-shadow: 0 0 10px #d4af37, 0 0 20px #800020;
+    animation: fall 8s linear infinite;
+    opacity: 0.7;
 }
 
 .sparkles span:nth-child(1) { left: 10%; animation-delay: 0s; }
-.sparkles span:nth-child(2) { left: 20%; animation-delay: 2s; width: 12px; height: 12px; }
-.sparkles span:nth-child(3) { left: 35%; animation-delay: 4s; }
-.sparkles span:nth-child(4) { left: 50%; animation-delay: 1s; width: 10px; height: 10px; }
-.sparkles span:nth-child(5) { left: 65%; animation-delay: 3s; }
-.sparkles span:nth-child(6) { left: 75%; animation-delay: 5s; width: 12px; height: 12px; }
-.sparkles span:nth-child(7) { left: 85%; animation-delay: 2s; }
-.sparkles span:nth-child(8) { left: 90%; animation-delay: 4s; }
+.sparkles span:nth-child(2) { left: 25%; animation-delay: 2s; width: 8px; height: 8px; }
+.sparkles span:nth-child(3) { left: 45%; animation-delay: 4s; }
+.sparkles span:nth-child(4) { left: 60%; animation-delay: 1s; width: 7px; height: 7px; }
+.sparkles span:nth-child(5) { left: 75%; animation-delay: 3s; }
+.sparkles span:nth-child(6) { left: 90%; animation-delay: 5s; width: 8px; height: 8px; }
 
 @keyframes fall {
-    0% {
-        top: -10%;
-        transform: translateX(0) rotate(0deg);
-        opacity: 0.8;
-    }
-    100% {
-        top: 110%;
-        transform: translateX(100px) rotate(360deg);
-        opacity: 0.2;
-    }
+    0% { top: -10%; transform: translateX(0); opacity: 0.8; }
+    100% { top: 110%; transform: translateX(80px); opacity: 0.1; }
 }
 
 /* --- NỘI DUNG CHÍNH --- */
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
 
 .profile-header {
     text-align: center;
@@ -335,38 +303,72 @@ body.open-door .door-right {
 }
 
 .avatar {
-    width: 110px;
-    height: 110px;
+    width: 115px;
+    height: 115px;
     border-radius: 50%;
-    border: 3px solid #ffffff;
-    box-shadow: 0 4px 15px rgba(244, 143, 177, 0.6);
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), 0 0 15px rgba(0, 0, 0, 0.8);
     margin-bottom: 12px;
     object-fit: cover;
 }
 
 .profile-header h2 {
-    color: #880e4f;
+    color: #f5e6d3;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .bio {
-    font-size: 1rem;
-    color: #ad1457;
+    font-size: 0.95rem;
+    color: #d4af37;
     margin-top: 5px;
+    font-style: italic;
 }
+
+/* --- MENU TAB ĐIỀU HƯỚNG --- */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 20px auto 30px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    max-width: 550px;
+    padding-bottom: 8px;
+}
+
+.tab-item {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #a89485;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.tab-item.active {
+    color: #f3e5ab;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #d4af37;
+    box-shadow: 0 0 8px #d4af37;
+}
+
+a.tab-item:hover { color: #f3e5ab; }
 
 /* --- GIAN HÀNG CHỒNG YÊU --- */
 .gallery-container {
     max-width: 850px;
     margin: 0 auto;
     padding: 30px 20px;
-}
-
-.gallery-container h3 {
-    text-align: center;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-    font-size: 1.4rem;
-    color: #880e4f;
 }
 
 .cards-grid {
@@ -376,40 +378,50 @@ body.open-door .door-right {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(248, 187, 208, 0.8);
+    background: linear-gradient(145deg, rgba(35, 4, 11, 0.85), rgba(18, 2, 5, 0.95));
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
     border-radius: 20px;
     overflow: hidden;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 20px rgba(244, 143, 177, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     cursor: pointer;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(236, 64, 122, 0.4);
+    border-color: #d4af37;
+    box-shadow: 0 12px 35px rgba(184, 15, 43, 0.5), 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .card-img {
     width: 100%;
     height: 350px;
     object-fit: cover;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-.card-info {
-    padding: 18px;
-}
+.card-info { padding: 18px; }
 
 .card-info h4 {
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #880e4f;
+    margin-bottom: 8px;
+}
+
+.char-link {
+    color: #f3e5ab;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.char-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #d4af37;
 }
 
 .quote {
     font-size: 0.95rem;
-    color: #4a5568;
+    color: #d1c2b5;
     font-style: italic;
     margin-bottom: 15px;
     line-height: 1.5;
@@ -417,70 +429,39 @@ body.open-door .door-right {
 
 .tags span {
     display: inline-block;
-    background: #f8bbd0;
+    background: rgba(77, 9, 23, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     font-size: 0.8rem;
-    padding: 5px 12px;
+    padding: 4px 12px;
     border-radius: 15px;
     margin-right: 6px;
     margin-bottom: 6px;
-    color: #880e4f;
+    color: #f5e6d3;
     font-weight: 600;
 }
 
-.char-link {
-    color: #880e4f;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+/* NHÃN UPCOMING VÀNG ÁNH KIM & ĐỎ RƯỢU */
+.card.upcoming { position: relative; }
 
-.char-link:hover {
-    color: #ec407a;
-    text-shadow: 0 0 8px rgba(236, 64, 122, 0.4);
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* --- THANH MENU TAB ĐIỀU HƯỚNG --- */
-.nav-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 20px auto 30px;
-    border-bottom: 2px solid rgba(248, 187, 208, 0.5);
-    max-width: 400px;
-    padding-bottom: 8px;
-}
-
-.tab-item {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #788896;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.tab-item.active {
-    color: #880e4f;
-}
-
-.tab-item.active::after {
-    content: '';
+.badge-upcoming {
     position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #880e4f;
-    border-radius: 2px;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #7c0d23, #d4af37);
+    color: #0d0103;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    z-index: 5;
+    animation: pulse 2s infinite;
 }
 
-a.tab-item:hover {
-    color: #ec407a;
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.85; }
 }
 
 /* --- CỬA SỔ POP-UP (MODAL) --- */
@@ -490,8 +471,8 @@ a.tab-item:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -507,14 +488,14 @@ a.tab-item:hover {
 }
 
 .modal-content {
-    background: #ffffff;
-    border: 2px solid #f8bbd0;
+    background: linear-gradient(145deg, #220309, #110104);
+    border: 1.5px solid #d4af37;
     width: 90%;
     max-width: 550px;
     max-height: 80vh;
     border-radius: 20px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(236, 64, 122, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(184, 15, 43, 0.4);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -525,16 +506,14 @@ a.tab-item:hover {
     top: 15px;
     right: 20px;
     font-size: 28px;
-    color: #ad1457;
+    color: #d4af37;
     cursor: pointer;
 }
 
-.close-btn:hover {
-    color: #ec407a;
-}
+.close-btn:hover { color: #ffffff; }
 
 .modal-title {
-    color: #880e4f;
+    color: #f3e5ab;
     font-size: 1.4rem;
     margin-bottom: 15px;
     text-align: center;
@@ -546,66 +525,203 @@ a.tab-item:hover {
     margin-bottom: 20px;
     font-size: 0.95rem;
     line-height: 1.7;
-    color: #4a5568;
+    color: #e6d5c3;
     max-height: 50vh;
 }
 
-.plot-container::-webkit-scrollbar {
-    width: 6px;
-}
-
+.plot-container::-webkit-scrollbar { width: 6px; }
 .plot-container::-webkit-scrollbar-thumb {
-    background: #f8bbd0;
+    background: #5a091a;
     border-radius: 10px;
+    border: 1px solid #d4af37;
 }
 
 .modal-footer {
     text-align: center;
     padding-top: 10px;
-    border-top: 1px solid #fce4ec;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .btn-chat {
     display: inline-block;
-    background: linear-gradient(135deg, #ec407a, #c2185b);
-    color: #ffffff;
-    padding: 10px 25px;
+    background: linear-gradient(135deg, #7c0d23, #3d0510);
+    border: 1px solid #d4af37;
+    color: #f3e5ab;
+    padding: 10px 28px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease;
 }
 
 .btn-chat:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(236, 64, 122, 0.6);
-}
-
-/* --- NHÃN UPCOMING TRÊN THẺ NHÂN VẬT --- */
-.card.upcoming {
-    position: relative;
-}
-
-.badge-upcoming {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: linear-gradient(135deg, #ad1457, #ec407a);
+    background: linear-gradient(135deg, #99102c, #5a0818);
     color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(173, 20, 87, 0.4);
-    z-index: 5;
-    animation: pulse 2s infinite;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 15, 43, 0.7);
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.85; }
+/* --- TAB CỘNG ĐỒNG (BAN PHÁT CHỒNG & NÓI XẤU CHỒNG) --- */
+.tab-content { animation: fadeInTab 0.4s ease; }
+.hidden-tab { display: none !important; }
+.active-tab { display: block; }
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.forum-container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 10px 20px 40px;
+    text-align: center;
+}
+
+.section-title {
+    color: #f3e5ab;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.section-desc {
+    color: #c9b09a;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.post-box {
+    background: linear-gradient(145deg, rgba(35, 4, 11, 0.9), rgba(18, 2, 5, 0.95));
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.box-header {
+    color: #f3e5ab;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.input-field, .textarea-field {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    background: rgba(10, 1, 3, 0.7);
+    font-size: 0.95rem;
+    color: #f5e6d3;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.input-field:focus, .textarea-field:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.textarea-field {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #7c0d23, #450512);
+    border: 1px solid #d4af37;
+    color: #f3e5ab;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #99102c, #5a0818);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(184, 15, 43, 0.7);
+}
+
+.list-title {
+    color: #f3e5ab;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.cards-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feed-item {
+    background: linear-gradient(145deg, rgba(30, 3, 9, 0.85), rgba(15, 1, 4, 0.95));
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-left: 4px solid #d4af37;
+    border-radius: 15px;
+    padding: 16px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+.feed-content {
+    color: #e6d5c3;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+}
+
+.feed-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #c9b09a;
+    border-top: 1px dashed rgba(212, 175, 55, 0.2);
+    padding-top: 8px;
+}
+
+.feed-author { font-weight: 600; color: #f3e5ab; }
+
+.btn-heart {
+    background: rgba(88, 11, 25, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #f3e5ab;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+.btn-heart:hover {
+    background: #7c0d23;
+    border-color: #d4af37;
+    transform: scale(1.05);
+}
+
+.loading-text {
+    color: #a89485;
+    font-style: italic;
 }
