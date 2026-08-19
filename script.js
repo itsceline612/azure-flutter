@@ -1,4 +1,23 @@
-// 1. Mở cánh cửa Châu Âu & chuyển mượt mà không chớp màn hình
+// ==========================================
+// 1. HIỆU ỨNG VỆT BỤI VÀNG THEO CON TRỎ CHUỘT
+// ==========================================
+document.addEventListener('mousemove', function(e) {
+    if (Math.random() < 0.35) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'cursor-particle';
+        sparkle.style.left = e.clientX + 'px';
+        sparkle.style.top = e.clientY + 'px';
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 900);
+    }
+});
+
+// ==========================================
+// 2. MỞ CỔNG CUNG ĐIỆN & CHUYỂN CẢNH MƯỢT MÀ
+// ==========================================
 document.getElementById('btn-enter').addEventListener('click', function() {
     const music = document.getElementById('bg-music');
     const doorContainer = document.getElementById('door-container');
@@ -12,30 +31,33 @@ document.getElementById('btn-enter').addEventListener('click', function() {
         });
     }
 
-    // Bước A: Hiện cánh cửa cung điện che kín màn hình
+    // Hiện cánh cửa che kín màn hình
     if (doorContainer) {
         doorContainer.classList.add('active');
     }
 
-    // Bước B: Ngay khi cửa đã phủ kín, ẩn ngay Intro và hiện Main Content ở sau lưng cửa
+    // Ẩn Intro và hiện Main Content phía sau
     setTimeout(function() {
         if (introScreen) introScreen.style.display = 'none';
         if (mainContent) mainContent.classList.remove('hidden');
     }, 100);
 
-    // Bước C: Mở toang 2 cánh cửa ra (lộ trực tiếp gian hàng nhân vật)
+    // Mở toang 2 cánh cửa lộ gian hàng
     setTimeout(function() {
         document.body.classList.add('open-door');
     }, 250);
 
-    // Bước D: Xóa hẳn khung cửa sau khi mở xong để người dùng tương tác thoải mái
+    // Xóa khung cửa sau animation
     setTimeout(function() {
         if (doorContainer) {
             doorContainer.style.display = 'none';
         }
     }, 2100);
 });
-// 2. Mở Pop-up & tự đổi tên nút bấm tùy thuộc vào nhân vật UPCOMING hay thường
+
+// ==========================================
+// 3. POP-UP PLOT NHÂN VẬT (PHONG THƯ BÍ MẬT)
+// ==========================================
 function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
     const modal = document.getElementById('plot-modal');
     const plotContainer = document.getElementById('plot-text');
@@ -46,19 +68,19 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
     if (btnChat) {
         btnChat.href = linkURL;
         
-        // Đổi tên nút dựa vào biến isUpcoming
+        // Cập nhật danh xưng quý tộc cho nút bấm
         if (isUpcoming) {
-            btnChat.textContent = "ĐỌC PLOT ➔";
+            btnChat.textContent = "MỞ NIÊM PHONG BÍ MẬT ➔";
         } else {
-            btnChat.textContent = "CHAT VỚI CHỒNG IU ➔";
+            btnChat.textContent = "KHIÊU VŨ CÙNG CHÀNG ➔";
         }
     }
     
-    if (plotContainer) plotContainer.innerHTML = '<p>Đang tải nội dung giới thiệu...</p>';
+    if (plotContainer) plotContainer.innerHTML = '<p>Đang mở bức phong thư mật...</p>';
 
     modal.classList.add('active');
 
-    // Tải nội dung từ file .txt tương ứng
+    // Tải nội dung từ file .txt
     fetch(filePlot)
         .then(response => {
             if (!response.ok) throw new Error('Không tìm thấy file plot');
@@ -68,12 +90,14 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
             plotContainer.innerHTML = data.replace(/\n/g, '<br>');
         })
         .catch(error => {
-            plotContainer.innerHTML = '<p style="color: #c2185b;">Không thể tải nội dung câu chuyện. Hãy kiểm tra lại file .txt trên GitHub nhé!</p>';
+            plotContainer.innerHTML = '<p style="color: #d4af37;">Không thể tải nội dung câu chuyện. Hãy kiểm tra lại file .txt trên GitHub nhé!</p>';
             console.error(error);
         });
 }
 
-// 3. Đóng Pop-up
+// ==========================================
+// 4. ĐÓNG POP-UP
+// ==========================================
 function closeModal() {
     document.getElementById('plot-modal').classList.remove('active');
 }
