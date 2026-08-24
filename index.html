@@ -84,9 +84,10 @@
             <p class="bio">⚜ Kẻ dệt nên những giấc mộng si tình ⚜</p>
         </header>
 
-        <!-- Thanh Menu Tab 3 mục rõ ràng -->
+        <!-- Thanh Menu Tab 4 mục -->
         <nav class="nav-tabs">
             <span class="tab-item active" onclick="switchTab('gallery')">✦ Chiêu mộ tình nhân ✦</span>
+            <span class="tab-item" onclick="switchTab('solo')">✦ Độc hành giới ✦</span>
             <span class="tab-item" onclick="switchTab('news')">✦ Cáo thị vương triều ✦</span>
             <a href="https://www.facebook.com/itsceline6" target="_blank" class="tab-item">✦ Vương hậu ✦</a>
         </nav>
@@ -224,7 +225,41 @@
             </div>
         </section>
 
-        <!-- TAB 2: CÁO THỊ VƯƠNG TRIỀU (BẢN TIN THÔNG BÁO) -->
+        <!-- TAB 2: ĐỘC HÀNH GIỚI (THẾ GIỚI MỞ SOLO CỦA {{USER}}) -->
+        <section id="tab-solo" class="tab-content hidden-tab">
+            <div class="gallery-container">
+                <div class="cards-grid">
+
+                    <!-- ✦ THẾ GIỚI SOLO 1 ✦ -->
+                    <div class="card upcoming" onclick="openModal('opw1-plot.txt', 'Người Đứng Giữa Ba Thế Giới', 'https://www.facebook.com/share/p/1d7WVzWo7E/', true, true)">
+                        <div class="badge-upcoming">✦ UPCOMING ✦</div>
+                        <div class="corner-ornament top-left">⚜</div>
+                        <div class="corner-ornament top-right">⚜</div>
+                        <div class="corner-ornament bottom-left">⚜</div>
+                        <div class="corner-ornament bottom-right">⚜</div>
+
+                        <img src="opw1.png" alt="Người Đứng Giữa Ba Thế Giới" class="card-img">
+
+                        <div class="card-info">
+                            <h4>
+                                <span class="char-link">Người Đứng Giữa Ba Thế Giới</span>
+                            </h4>
+                            <p class="quote">"Khi dương thế vẫn xoay vần bình lặng, chỉ còn lại một mình em thức giấc giữa âm giới lặng im."</p>
+                            <div class="tags">
+                                <span>#OpenWorld</span>
+                                <span>#TâmLinh</span>
+                                <span>#LinhDị</span>
+                                <span>#SoloUser</span>
+                                <span>#ComingSoon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: CÁO THỊ VƯƠNG TRIỀU (BẢN TIN THÔNG BÁO) -->
         <section id="tab-news" class="tab-content hidden-tab">
             <div class="news-container">
                 <div class="royal-scroll">
