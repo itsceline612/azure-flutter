@@ -101,3 +101,24 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
 function closeModal() {
     document.getElementById('plot-modal').classList.remove('active');
 }
+// ==========================================
+// HÀM CHUYỂN ĐỔI TAB NỘI DUNG
+// ==========================================
+function switchTab(tabName) {
+    const tabs = document.querySelectorAll('.tab-item');
+    const tabGallery = document.getElementById('tab-gallery');
+    const tabNews = document.getElementById('tab-news');
+
+    tabs.forEach(t => t.classList.remove('active'));
+
+    if (tabGallery) tabGallery.classList.add('hidden-tab');
+    if (tabNews) tabNews.classList.add('hidden-tab');
+
+    if (tabName === 'gallery') {
+        tabs[0].classList.add('active');
+        if (tabGallery) tabGallery.classList.remove('hidden-tab');
+    } else if (tabName === 'news') {
+        tabs[1].classList.add('active');
+        if (tabNews) tabNews.classList.remove('hidden-tab');
+    }
+}
