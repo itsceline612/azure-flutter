@@ -58,12 +58,14 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false, isSoloWorl
     const modal = document.getElementById('plot-modal');
     const plotContainer = document.getElementById('plot-text');
     const modalTitle = document.querySelector('.modal-title');
-    const btnChat = document.querySelector('.btn-chat');
+    
+    // Nhận diện chính xác nút nằm bên trong popup
+    const btnChat = document.querySelector('#plot-modal .btn-chat');
     
     if (modalTitle) modalTitle.textContent = tenNhanVat;
     
     if (btnChat) {
-        // Gán link chính xác và mở trong tab mới
+        // Gán link chính xác và thiết lập mở tab mới
         btnChat.setAttribute('href', linkURL);
         btnChat.setAttribute('target', '_blank');
         btnChat.setAttribute('rel', 'noopener noreferrer');
@@ -148,7 +150,6 @@ function switchTab(tabName) {
         if (tabs[3]) tabs[3].classList.add('active');
         if (tabRequest) tabRequest.classList.remove('hidden-tab');
     } else if (tabName === 'news') {
-        // Tự động kích hoạt tab news dù bạn có 4 hay 5 tab
         const newsIndex = tabRequest ? 4 : 3;
         if (tabs[newsIndex]) tabs[newsIndex].classList.add('active');
         if (tabNews) tabNews.classList.remove('hidden-tab');
