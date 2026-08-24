@@ -52,7 +52,7 @@ document.getElementById('btn-enter').addEventListener('click', function() {
 });
 
 // ==========================================
-// 3. POP-UP PLOT (HỖ TRỢ CẢ CHAR VÀ THẾ GIỚI SOLO)
+// 3. POP-UP PLOT (GÁN LINK CHÍNH XÁC 100%)
 // ==========================================
 function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false, isSoloWorld = false) {
     const modal = document.getElementById('plot-modal');
@@ -61,10 +61,14 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false, isSoloWorl
     const btnChat = document.querySelector('.btn-chat');
     
     if (modalTitle) modalTitle.textContent = tenNhanVat;
+    
     if (btnChat) {
-        btnChat.href = linkURL;
+        // Gán link chính xác và mở trong tab mới
+        btnChat.setAttribute('href', linkURL);
+        btnChat.setAttribute('target', '_blank');
+        btnChat.setAttribute('rel', 'noopener noreferrer');
         
-        // Tự đổi nhãn nút tùy thuộc vào loại thẻ
+        // Tự đổi nhãn nút phù hợp với loại thẻ
         if (isUpcoming) {
             btnChat.textContent = "MỞ NIÊM PHONG BÍ MẬT ➔";
         } else if (isSoloWorld) {
@@ -78,6 +82,7 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false, isSoloWorl
 
     modal.classList.add('active');
 
+    // Đọc nội dung file cốt truyện
     fetch(filePlot)
         .then(response => {
             if (!response.ok) throw new Error('Không tìm thấy file plot');
@@ -96,41 +101,56 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false, isSoloWorl
 // 4. ĐÓNG POP-UP
 // ==========================================
 function closeModal() {
-    document.getElementById('plot-modal').classList.remove('active');
+    const modal = document.getElementById('plot-modal');
+    if (modal) modal.classList.remove('active');
 }
 
+// Đóng modal khi click ra vùng tối bên ngoài hộp thư
+window.addEventListener('click', function(e) {
+    const modal = document.getElementById('plot-modal');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
 // ==========================================
-// ==========================================
-// 5. HÀM CHUYỂN ĐỔI TAB NỘI DUNG (4 TAB)
+// 5. HÀM CHUYỂN ĐỔI TAB NỘI DUNG
 // ==========================================
 function switchTab(tabName) {
     const tabs = document.querySelectorAll('.tab-item');
     const tabGallery = document.getElementById('tab-gallery');
     const tabSolo = document.getElementById('tab-solo');
     const tabForum = document.getElementById('tab-forum');
+    const tabRequest = document.getElementById('tab-request');
     const tabNews = document.getElementById('tab-news');
 
-    // Tắt trạng thái active của tất cả tab menu
+    // Tắt trạng thái active của tất cả các nút tab
     tabs.forEach(t => t.classList.remove('active'));
 
-    // Ẩn tất cả các khối nội dung
+    // Ẩn tất cả các phần nội dung
     if (tabGallery) tabGallery.classList.add('hidden-tab');
     if (tabSolo) tabSolo.classList.add('hidden-tab');
     if (tabForum) tabForum.classList.add('hidden-tab');
+    if (tabRequest) tabRequest.classList.add('hidden-tab');
     if (tabNews) tabNews.classList.add('hidden-tab');
 
-    // Kích hoạt tab được chọn
+    // Hiện tab được bấm tương ứng
     if (tabName === 'gallery') {
-        tabs[0].classList.add('active');
+        if (tabs[0]) tabs[0].classList.add('active');
         if (tabGallery) tabGallery.classList.remove('hidden-tab');
     } else if (tabName === 'solo') {
-        tabs[1].classList.add('active');
+        if (tabs[1]) tabs[1].classList.add('active');
         if (tabSolo) tabSolo.classList.remove('hidden-tab');
     } else if (tabName === 'forum') {
-        tabs[2].classList.add('active');
+        if (tabs[2]) tabs[2].classList.add('active');
         if (tabForum) tabForum.classList.remove('hidden-tab');
+    } else if (tabName === 'request') {
+        if (tabs[3]) tabs[3].classList.add('active');
+        if (tabRequest) tabRequest.classList.remove('hidden-tab');
     } else if (tabName === 'news') {
-        tabs[3].classList.add('active');
+        // Tự động kích hoạt tab news dù bạn có 4 hay 5 tab
+        const newsIndex = tabRequest ? 4 : 3;
+        if (tabs[newsIndex]) tabs[newsIndex].classList.add('active');
         if (tabNews) tabNews.classList.remove('hidden-tab');
     }
 }
