@@ -100,28 +100,37 @@ function closeModal() {
 }
 
 // ==========================================
+// ==========================================
 // 5. HÀM CHUYỂN ĐỔI TAB NỘI DUNG (4 TAB)
 // ==========================================
 function switchTab(tabName) {
     const tabs = document.querySelectorAll('.tab-item');
     const tabGallery = document.getElementById('tab-gallery');
     const tabSolo = document.getElementById('tab-solo');
+    const tabForum = document.getElementById('tab-forum');
     const tabNews = document.getElementById('tab-news');
 
+    // Tắt trạng thái active của tất cả tab menu
     tabs.forEach(t => t.classList.remove('active'));
 
+    // Ẩn tất cả các khối nội dung
     if (tabGallery) tabGallery.classList.add('hidden-tab');
     if (tabSolo) tabSolo.classList.add('hidden-tab');
+    if (tabForum) tabForum.classList.add('hidden-tab');
     if (tabNews) tabNews.classList.add('hidden-tab');
 
+    // Kích hoạt tab được chọn
     if (tabName === 'gallery') {
         tabs[0].classList.add('active');
         if (tabGallery) tabGallery.classList.remove('hidden-tab');
     } else if (tabName === 'solo') {
         tabs[1].classList.add('active');
         if (tabSolo) tabSolo.classList.remove('hidden-tab');
-    } else if (tabName === 'news') {
+    } else if (tabName === 'forum') {
         tabs[2].classList.add('active');
+        if (tabForum) tabForum.classList.remove('hidden-tab');
+    } else if (tabName === 'news') {
+        tabs[3].classList.add('active');
         if (tabNews) tabNews.classList.remove('hidden-tab');
     }
 }
