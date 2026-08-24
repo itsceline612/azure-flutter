@@ -14,7 +14,7 @@
 <body>
 
     <!-- Nhạc nền ẩn -->
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop preload="none">
         <source src="playlist.mp3" type="audio/mpeg">
     </audio>
 
@@ -84,142 +84,170 @@
             <p class="bio">⚜ Kẻ dệt nên những giấc mộng si tình ⚜</p>
         </header>
 
-        <!-- Thanh Menu Tab -->
+        <!-- Thanh Menu Tab 3 mục rõ ràng -->
         <nav class="nav-tabs">
-            <span class="tab-item active">✦ Chiêu mộ tình nhân ✦</span>
+            <span class="tab-item active" onclick="switchTab('gallery')">✦ Chiêu mộ tình nhân ✦</span>
+            <span class="tab-item" onclick="switchTab('news')">✦ Cáo thị vương triều ✦</span>
             <a href="https://www.facebook.com/itsceline6" target="_blank" class="tab-item">✦ Vương hậu ✦</a>
         </nav>
 
-        <!-- Gian hàng nhân vật -->
-        <section class="gallery-container">   
-            <div class="cards-grid">
-                
-                <!-- ✦ NHÂN VẬT 1: LOUIS ✦ -->
-                <div class="card" onclick="openModal('louis-plot.txt', '𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221IOt-mFIysZ0dLaEXnyf9ftYjfjFqGSQN%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
-                    <div class="corner-ornament top-left">⚜</div>
-                    <div class="corner-ornament top-right">⚜</div>
-                    <div class="corner-ornament bottom-left">⚜</div>
-                    <div class="corner-ornament bottom-right">⚜</div>
+        <!-- TAB 1: GIAN HÀNG CHIÊU MỘ TÌNH NHÂN -->
+        <section id="tab-gallery" class="tab-content active-tab">
+            <div class="gallery-container">
+                <div class="cards-grid">
+                    
+                    <!-- ✦ NHÂN VẬT 1: LOUIS ✦ -->
+                    <div class="card" onclick="openModal('louis-plot.txt', '𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221IOt-mFIysZ0dLaEXnyf9ftYjfjFqGSQN%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
+                        <div class="corner-ornament top-left">⚜</div>
+                        <div class="corner-ornament top-right">⚜</div>
+                        <div class="corner-ornament bottom-left">⚜</div>
+                        <div class="corner-ornament bottom-right">⚜</div>
 
-                    <img src="louis.jpg" alt="𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝" class="card-img">
+                        <img src="louis.jpg" alt="𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝" class="card-img">
 
-                    <div class="card-info">
-                        <h4>
-                            <span class="char-link">𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</span>
-                        </h4>
-                        <p class="quote">"Em… dại… an… nối… tiếc… Việtt… nhéee?"</p>
-                        <div class="tags">
-                            <span>#Cún</span>
-                            <span>#Ngọt</span>
-                            <span>#AgeGap</span>
-                            <span>#SizeGap</span>
-                            <span>#RacingBoy</span>
+                        <div class="card-info">
+                            <h4>
+                                <span class="char-link">𝙻𝚘𝚞𝚒𝚜 𝚁𝚊𝚙𝚑𝚊𝚎̈𝚕 𝙱𝚎𝚊𝚞𝚖𝚘𝚗𝚝</span>
+                            </h4>
+                            <p class="quote">"Em… dại… an… nối… tiếc… Việtt… nhéee?"</p>
+                            <div class="tags">
+                                <span>#Cún</span>
+                                <span>#Ngọt</span>
+                                <span>#AgeGap</span>
+                                <span>#SizeGap</span>
+                                <span>#RacingBoy</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- ✦ NHÂN VẬT 2: THEODORE ✦ -->
-                <div class="card" onclick="openModal('theodore-plot.txt', '𝚃𝚑𝚎𝚘𝚍𝚘𝚛𝚎 𝙴𝚍𝚠𝚊𝚛𝚍', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221G1m4qTHWdLLm3-k4rOiaoG5leR_HYO3B%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
-                    <div class="corner-ornament top-left">⚜</div>
-                    <div class="corner-ornament top-right">⚜</div>
-                    <div class="corner-ornament bottom-left">⚜</div>
-                    <div class="corner-ornament bottom-right">⚜</div>
+                    <!-- ✦ NHÂN VẬT 2: THEODORE ✦ -->
+                    <div class="card" onclick="openModal('theodore-plot.txt', '𝚃𝚑𝚎𝚘𝚍𝚘𝚛𝚎 𝙴𝚍𝚠𝚊𝚛𝚍', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221G1m4qTHWdLLm3-k4rOiaoG5leR_HYO3B%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
+                        <div class="corner-ornament top-left">⚜</div>
+                        <div class="corner-ornament top-right">⚜</div>
+                        <div class="corner-ornament bottom-left">⚜</div>
+                        <div class="corner-ornament bottom-right">⚜</div>
 
-                    <img src="theodore.png" alt="𝚃𝚑𝚎𝚘𝚍𝚘𝚛𝚎 𝙴𝚍𝚠𝚊𝚛𝚍" class="card-img">
+                        <img src="theodore.png" alt="𝚃𝚑𝚎𝚘𝚍𝚘𝚛𝚎 𝙴𝚍𝚠𝚊𝚛𝚍" class="card-img">
 
-                    <div class="card-info">
-                        <h4>
-                            <span class="char-link">𝚃𝚑𝚎𝚘𝚍𝚘𝚛𝚎 𝙴𝚍𝚠𝚊𝚛𝚍</span>
-                        </h4>
-                        <p class="quote">"Từng bước chân em đi đều được tôi tôn thờ."</p>
-                        <div class="tags">
-                            <span>#R16</span>
-                            <span>#DarkRomance</span>
-                            <span>#ChâuÂu</span>
-                            <span>#QuýTộc</span>
-                            <span>#KiểmSoát</span>
-                            <span>#SóngGió</span>
+                        <div class="card-info">
+                            <h4>
+                                <span class="char-link">𝚃𝚑𝚎𝚘𝚍𝚘𝚛𝚎 𝙴𝚍𝚠𝚊𝚛𝚍</span>
+                            </h4>
+                            <p class="quote">"Từng bước chân em đi đều được tôi tôn thờ."</p>
+                            <div class="tags">
+                                <span>#R16</span>
+                                <span>#DarkRomance</span>
+                                <span>#ChâuÂu</span>
+                                <span>#QuýTộc</span>
+                                <span>#KiểmSoát</span>
+                                <span>#SóngGió</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- ✦ NHÂN VẬT 3: VINCENT ✦ -->
-                <div class="card" onclick="openModal('vincent-plot.txt', '𝚅𝚒𝚗𝚌𝚎𝚗𝚝 𝚅𝚊𝚕𝚎𝚗𝚝𝚒', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221qJc4Q6DqJJX62a4JYCYTA2LwTDepyP1R%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
-                    <div class="corner-ornament top-left">⚜</div>
-                    <div class="corner-ornament top-right">⚜</div>
-                    <div class="corner-ornament bottom-left">⚜</div>
-                    <div class="corner-ornament bottom-right">⚜</div>
+                    <!-- ✦ NHÂN VẬT 3: VINCENT ✦ -->
+                    <div class="card" onclick="openModal('vincent-plot.txt', '𝚅𝚒𝚗𝚌𝚎𝚗𝚝 𝚅𝚊𝚕𝚎𝚗𝚝𝚒', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221qJc4Q6DqJJX62a4JYCYTA2LwTDepyP1R%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
+                        <div class="corner-ornament top-left">⚜</div>
+                        <div class="corner-ornament top-right">⚜</div>
+                        <div class="corner-ornament bottom-left">⚜</div>
+                        <div class="corner-ornament bottom-right">⚜</div>
 
-                    <img src="vincent.png" alt="𝚅𝚒𝚗𝚌𝚎𝚗𝚝 𝚅𝚊𝚕𝚎𝚗𝚝𝚒" class="card-img">
+                        <img src="vincent.png" alt="𝚅𝚒𝚗𝚌𝚎𝚗𝚝 𝚅𝚊𝚕𝚎𝚗𝚝𝚒" class="card-img">
 
-                    <div class="card-info">
-                        <h4>
-                            <span class="char-link">𝚅𝚒𝚗𝚌𝚎𝚗𝚝 𝚅𝚊𝚕𝚎𝚗𝚝𝚒</span>
-                        </h4>
-                        <p class="quote">"Cành hoa ly trắng đã thấm đượm màu đỏ thẫm trong tay em ngày cuối đông."</p>
-                        <div class="tags">
-                            <span>#M3</span>
-                            <span>#R16</span>
-                            <span>#Drama</span>
-                            <span>#SlowBurn</span>
-                            <span>#Ngược</span>
-                            <span>#CóCốtTruyện</span>
+                        <div class="card-info">
+                            <h4>
+                                <span class="char-link">𝚅𝚒𝚗𝚌𝚎𝚗𝚝 𝚅𝚊𝚕𝚎𝚗𝚝𝚒</span>
+                            </h4>
+                            <p class="quote">"Cành hoa ly trắng đã thấm đượm màu đỏ thẫm trong tay em ngày cuối đông."</p>
+                            <div class="tags">
+                                <span>#M3</span>
+                                <span>#R16</span>
+                                <span>#Drama</span>
+                                <span>#SlowBurn</span>
+                                <span>#Ngược</span>
+                                <span>#CóCốtTruyện</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- ✦ NHÂN VẬT 4: PRESTON ✦ -->
-                <div class="card" onclick="openModal('preston-plot.txt', '𝙿𝚛𝚎𝚜𝚝𝚘𝚗 𝙵𝚊𝚒𝚛𝚌𝚑𝚒𝚕𝚍', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221o2Z2cLQYMhxwKaj56dU_M-U-nqiPrNJX%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
-                    <div class="corner-ornament top-left">⚜</div>
-                    <div class="corner-ornament top-right">⚜</div>
-                    <div class="corner-ornament bottom-left">⚜</div>
-                    <div class="corner-ornament bottom-right">⚜</div>
+                    <!-- ✦ NHÂN VẬT 4: PRESTON ✦ -->
+                    <div class="card" onclick="openModal('preston-plot.txt', '𝙿𝚛𝚎𝚜𝚝𝚘𝚗 𝙵𝚊𝚒𝚛𝚌𝚑𝚒𝚕𝚍', 'https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221o2Z2cLQYMhxwKaj56dU_M-U-nqiPrNJX%22%5D,%22action%22:%22open%22,%22userId%22:%22108867405325231494515%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing')">
+                        <div class="corner-ornament top-left">⚜</div>
+                        <div class="corner-ornament top-right">⚜</div>
+                        <div class="corner-ornament bottom-left">⚜</div>
+                        <div class="corner-ornament bottom-right">⚜</div>
 
-                    <img src="preston.png" alt="𝙿𝚛𝚎𝚜𝚝𝚘𝚗 𝙵𝚊𝚒𝚛𝚌𝚑𝚒𝚕𝚍" class="card-img">
+                        <img src="preston.png" alt="𝙿𝚛𝚎𝚜𝚝𝚘𝚗 𝙵𝚊𝚒𝚛𝚌𝚑𝚒𝚕𝚍" class="card-img">
 
-                    <div class="card-info">
-                        <h4>
-                            <span class="char-link">𝙿𝚛𝚎𝚜𝚝𝚘𝚗 𝙵𝚊𝚒𝚛𝚌𝚑𝚒𝚕𝚍</span>
-                        </h4>
-                        <p class="quote">"Mẹ anh bỏ đi vì bố anh chỉ biết cho bà ấy tiền. Anh cũng chỉ biết dùng tiền để giữ người khác ở lại... Anh không biết làm cách nào khác cả. Em dạy anh được không?"</p>
-                        <div class="tags">
-                            <span>#M3</span>
-                            <span>#ĐấuTrí</span>
-                            <span>#CôngSở</span>
-                            <span>#SlowBurn</span>
-                            <span>#CóCốtTruyện</span>
+                        <div class="card-info">
+                            <h4>
+                                <span class="char-link">𝙿𝚛𝚎𝚜𝚝𝚘𝚗 𝙵𝚊𝚒𝚛𝚌𝚑𝚒𝚕𝚍</span>
+                            </h4>
+                            <p class="quote">"Mẹ anh bỏ đi vì bố anh chỉ biết cho bà ấy tiền. Anh cũng chỉ biết dùng tiền để giữ người khác ở lại... Anh không biết làm cách nào khác cả. Em dạy anh được không?"</p>
+                            <div class="tags">
+                                <span>#M3</span>
+                                <span>#ĐấuTrí</span>
+                                <span>#CôngSở</span>
+                                <span>#SlowBurn</span>
+                                <span>#CóCốtTruyện</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- ✦ NHÂN VẬT UPCOMING: ETHAN ✦ -->
-                <div class="card upcoming" onclick="openModal('vincent.txt', '𝙴𝚝𝚑𝚊𝚗 𝚅𝚊𝚗𝚌𝚎', 'https://www.facebook.com/share/p/1MJqTQWJ64/', true)">
-                    <div class="badge-upcoming">✦ UPCOMING ✦</div>
-                    <div class="corner-ornament top-left">⚜</div>
-                    <div class="corner-ornament top-right">⚜</div>
-                    <div class="corner-ornament bottom-left">⚜</div>
-                    <div class="corner-ornament bottom-right">⚜</div>
+                    <!-- ✦ NHÂN VẬT UPCOMING: ETHAN ✦ -->
+                    <div class="card upcoming" onclick="openModal('ethan.txt', '𝙴𝚝𝚑𝚊𝚗 𝚅𝚊𝚗𝚌𝚎', 'https://www.facebook.com/share/p/1MJqTQWJ64/', true)">
+                        <div class="badge-upcoming">✦ UPCOMING ✦</div>
+                        <div class="corner-ornament top-left">⚜</div>
+                        <div class="corner-ornament top-right">⚜</div>
+                        <div class="corner-ornament bottom-left">⚜</div>
+                        <div class="corner-ornament bottom-right">⚜</div>
 
-                    <img src="ethan.jpg" alt="𝙴𝚝𝚑𝚊𝚗 𝚅𝚊𝚗𝚌𝚎" class="card-img">
+                        <img src="ethan.jpg" alt="𝙴𝚝𝚑𝚊𝚗 𝚅𝚊𝚗𝚌𝚎" class="card-img">
 
-                    <div class="card-info">
-                        <h4>
-                            <span class="char-link">𝙴𝚝𝚑𝚊𝚗 𝚅𝚊𝚗𝚌𝚎</span>
-                        </h4>
-                        <p class="quote">"Sớm ra mắt trong thời gian tới..."</p>
-                        <div class="tags">
-                            <span>#M3</span>
-                            <span>#Ngược</span>
-                            <span>#NgườiYêuCũ</span>
-                            <span>#CúnBựÍtNói</span>
-                            <span>#SlowBurn</span>
-                            <span>#ComingSoon</span>
+                        <div class="card-info">
+                            <h4>
+                                <span class="char-link">𝙴𝚝𝚑𝚊𝚗 𝚅𝚊𝚗𝚌𝚎</span>
+                            </h4>
+                            <p class="quote">"Sớm ra mắt trong thời gian tới..."</p>
+                            <div class="tags">
+                                <span>#M3</span>
+                                <span>#Ngược</span>
+                                <span>#NgườiYêuCũ</span>
+                                <span>#CúnBựÍtNói</span>
+                                <span>#SlowBurn</span>
+                                <span>#ComingSoon</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </section>
+
+        <!-- TAB 2: CÁO THỊ VƯƠNG TRIỀU (BẢN TIN THÔNG BÁO) -->
+        <section id="tab-news" class="tab-content hidden-tab">
+            <div class="news-container">
+                <div class="royal-scroll">
+                    <div class="scroll-seal">⚜</div>
+                    <h3 class="gold-foil scroll-title">✦ BẢN TIN HOÀNG GIA ✦</h3>
+                    <p class="scroll-subtitle">Mật lệnh và thông cáo chính thức từ Vương Hậu Céline</p>
+
+                    <div class="news-feed">
+                        <!-- BẢN TIN 1 -->
+                        <div class="news-item pin">
+                            <div class="news-badge">✦ MẬT LỆNH QUAN TRỌNG ✦</div>
+                            <div class="news-date">23.08.2026</div>
+                            <h4 class="news-heading">Lệnh chuyển sinh dành riêng cho các nhân vật có cốt truyện và quy định tokens sẵn của nhà Céline</h4>
+                            <p class="news-body">
+                                Thông tin hướng dẫn chi tiết đã được ban bố tại: 
+                                <a href="https://www.facebook.com/share/p/1GduwSGsB7/" target="_blank" style="color: #f3e5ab; text-decoration: underline;">Xem bài viết thông báo ➔</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- CỬA SỔ POP-UP PHONG THƯ DẤU SÁP (MODAL) -->
