@@ -705,3 +705,17 @@ a.tab-item:hover { color: #f3e5ab; }
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(184, 15, 43, 0.7);
 }
+/* --- KHUNG DIỄN ĐÀN QUẢNG TRƯỜNG TÂM TÌNH --- */
+.forum-scroll-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 15px 50px;
+}
+
+.forum-embed-box {
+    background: rgba(15, 1, 4, 0.7);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9), 0 8px 25px rgba(0, 0, 0, 0.7);
+}
