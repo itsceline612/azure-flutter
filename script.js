@@ -31,23 +31,19 @@ document.getElementById('btn-enter').addEventListener('click', function() {
         });
     }
 
-    // Hiện cánh cửa che kín màn hình
     if (doorContainer) {
         doorContainer.classList.add('active');
     }
 
-    // Ẩn Intro và hiện Main Content phía sau
     setTimeout(function() {
         if (introScreen) introScreen.style.display = 'none';
         if (mainContent) mainContent.classList.remove('hidden');
     }, 100);
 
-    // Mở toang 2 cánh cửa lộ gian hàng
     setTimeout(function() {
         document.body.classList.add('open-door');
     }, 250);
 
-    // Xóa khung cửa sau animation
     setTimeout(function() {
         if (doorContainer) {
             doorContainer.style.display = 'none';
@@ -56,9 +52,9 @@ document.getElementById('btn-enter').addEventListener('click', function() {
 });
 
 // ==========================================
-// 3. POP-UP PLOT NHÂN VẬT (PHONG THƯ BÍ MẬT)
+// 3. POP-UP PLOT (HỖ TRỢ CẢ CHAR VÀ THẾ GIỚI SOLO)
 // ==========================================
-function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
+function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false, isSoloWorld = false) {
     const modal = document.getElementById('plot-modal');
     const plotContainer = document.getElementById('plot-text');
     const modalTitle = document.querySelector('.modal-title');
@@ -68,9 +64,11 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
     if (btnChat) {
         btnChat.href = linkURL;
         
-        // Cập nhật danh xưng quý tộc cho nút bấm
+        // Tự đổi nhãn nút tùy thuộc vào loại thẻ
         if (isUpcoming) {
             btnChat.textContent = "MỞ NIÊM PHONG BÍ MẬT ➔";
+        } else if (isSoloWorld) {
+            btnChat.textContent = "BƯỚC VÀO THẾ GIỚI ➔";
         } else {
             btnChat.textContent = "KHIÊU VŨ CÙNG CHÀNG ➔";
         }
@@ -80,7 +78,6 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
 
     modal.classList.add('active');
 
-    // Tải nội dung từ file .txt
     fetch(filePlot)
         .then(response => {
             if (!response.ok) throw new Error('Không tìm thấy file plot');
@@ -101,24 +98,30 @@ function openModal(filePlot, tenNhanVat, linkURL, isUpcoming = false) {
 function closeModal() {
     document.getElementById('plot-modal').classList.remove('active');
 }
+
 // ==========================================
-// HÀM CHUYỂN ĐỔI TAB NỘI DUNG
+// 5. HÀM CHUYỂN ĐỔI TAB NỘI DUNG (4 TAB)
 // ==========================================
 function switchTab(tabName) {
     const tabs = document.querySelectorAll('.tab-item');
     const tabGallery = document.getElementById('tab-gallery');
+    const tabSolo = document.getElementById('tab-solo');
     const tabNews = document.getElementById('tab-news');
 
     tabs.forEach(t => t.classList.remove('active'));
 
     if (tabGallery) tabGallery.classList.add('hidden-tab');
+    if (tabSolo) tabSolo.classList.add('hidden-tab');
     if (tabNews) tabNews.classList.add('hidden-tab');
 
     if (tabName === 'gallery') {
         tabs[0].classList.add('active');
         if (tabGallery) tabGallery.classList.remove('hidden-tab');
-    } else if (tabName === 'news') {
+    } else if (tabName === 'solo') {
         tabs[1].classList.add('active');
+        if (tabSolo) tabSolo.classList.remove('hidden-tab');
+    } else if (tabName === 'news') {
+        tabs[2].classList.add('active');
         if (tabNews) tabNews.classList.remove('hidden-tab');
     }
 }
